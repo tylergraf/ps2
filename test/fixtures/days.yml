@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  [morning_prayer: false
+  evening_prayer: false
+  scripture_study: false
+  service: false
+  comment: 
+
+two:
+  [morning_prayer: false
+  evening_prayer: false
+  scripture_study: false
+  service: false
+  comment: 
