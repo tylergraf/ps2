@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Morning prayer:</b>
+  <%= @check_in.morning_prayer %>
+</p>
+
+<p>
+  <b>Evening prayer:</b>
+  <%= @check_in.evening_prayer %>
+</p>
+
+<p>
+  <b>Scripture study:</b>
+  <%= @check_in.scripture_study %>
+</p>
+
+<p>
+  <b>Service:</b>
+  <%= @check_in.service %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @check_in.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_check_in_path(@check_in) %> |
+<%= link_to 'Back', check_ins_path %>

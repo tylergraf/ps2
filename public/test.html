@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet"  type="text/css" href="/iphone4.css" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+</head>
+<body>
+
+<header id="header">
+
+</header>
+<section id="bd">
+    <section id="display">
+        <header><h2>Daily Tasks</h2></header>
+        <section class="bd">
+            <ul id="tasks">
+                <li class="task"><a><i class="unchecked"></i></a><span>Morning Prayer</span></li>
+                <li class="task"><i class="checked"></i><span>Scripture Study</span></li>
+                <li class="task"><i class="x"></i><span>Service / Kindness</span></li>
+                <li class="task"><i class="unchecked"></i><span>Evening Prayer</span></li>
+            </ul>
+        </section>
+    </section>
+    <section id="days">
+        <ul id="days-wrapper">
+            <li class="day">
+                <h2 class="day-of-week">Monday</h2>
+
+                <h2 class="day-total">4</h2>
+                <i class="day-unrecorded"></i>
+                <p class="date">Jul 28</p>
+
+            </li>
+            <li class="day">
+                <h2 class="day-of-week">Tuesday</h2>
+
+                <h2 class="day-total">4</h2>
+                <i class="day-unrecorded"></i>
+
+                <p class="date">Jul 28</p>
+
+            </li>
+            <li class="day">
+                <h2 class="day-of-week">Wednesday</h2>
+
+                <h2 class="day-total">4</h2>
+                <i class="day-unrecorded"></i>
+
+                <p class="date">Jul 29</p>
+
+            </li>
+            <li class="day">
+                <h2 class="day-of-week">Thursday</h2>
+
+                <h2 class="day-total">4</h2>
+                 <i class="day-unrecorded"></i>
+
+                <p class="date">Jul 30</p>
+
+            </li>
+            <li class="day">
+                <h2 class="day-of-week">Friday</h2>
+
+                <h2 class="day-total">4</h2>
+                 <i class="day-unrecorded"></i>
+
+                <p class="date">Jul 31</p>
+
+            </li>
+            <li class="day">
+                <h2 class="day-of-week">Saturday</h2>
+
+                <h2 class="day-total">4</h2>
+                 <i class="day-unrecorded"></i>
+
+                <p class="date">Aug 1</p>
+
+            </li>
+            <li class="day">
+                <h2 class="day-of-week">Monday</h2>
+
+                <h2 class="day-total">4</h2>
+                 <i class="day-unrecorded"></i>
+
+                <p class="date">Jul 28</p>
+
+            </li>
+            <li class="day">
+                <h2 class="day-of-week">Tuesday</h2>
+
+                <h2 class="day-total">4</h2>
+                 <i class="day-unrecorded"></i>
+
+                <p class="date">Jul 28</p>
+
+            </li>
+            <li class="day">
+                <h2 class="day-of-week">Wednesday</h2>
+
+                <h2 class="day-total">4</h2>
+                 <i class="day-unrecorded"></i>
+
+                <p class="date">Jul 29</p>
+
+            </li>
+            <li class="day">
+                <h2 class="day-of-week">Thursday</h2>
+
+                <h2 class="day-total">4</h2>
+                 <i class="day-unrecorded"></i>
+
+                <p class="date">Jul 30</p>
+
+            </li>
+            <li class="day">
+                <h2 class="day-of-week">Friday</h2>
+
+                <h2 class="day-total">4</h2>
+                 <i class="day-unrecorded"></i>
+
+                <p class="date">Jul 31</p>
+
+            </li>
+            <li class="day">
+                <h2 class="day-of-week">Saturday</h2>
+
+                <h2 class="day-total">4</h2>
+                 <i class="day-unrecorded"></i>
+
+                <p class="date">Aug 1</p>
+
+            </li>
+            <li class="day">
+                <h2 class="day-of-week">yesterday</h2>
+
+                <h2 class="day-total">4</h2>
+                 <i class="day-unrecorded"></i>
+
+                <p class="date">Aug 2</p>
+
+            </li>
+            <li class="day selected">
+                <h2 class="day-of-week">today</h2>
+
+                <h2 class="day-total">4</h2>
+                 <i class="day-unrecorded"></i>
+
+                <p class="date">Aug 3</p>
+
+            </li>
+            <li class="day">
+                <h2 class="day-of-week">Tomorrow</h2>
+
+                <h2 class="day-total">&ndash;</h2>
+
+                <p class="date">Aug 4</p>
+
+            </li>
+        </ul>
+    </section>
+</section>
+<script src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
+
+<script type="application/javascript" src="http://cubiq.org/dropbox/iscroll4/src/iscroll.js"></script>
+
+<script type="text/javascript">
+
+var myScroll;
+function loaded() {
+
+    var day = jQuery('#days-wrapper li');
+    var dayCount = day.length;
+    var dayWidth = day[0].offsetWidth;
+    var width = dayWidth*dayCount;
+    jQuery('#days-wrapper').css('width',width);
+    myScroll = new iScroll('days',{hScrollbar: false},100);
+    width = width - document.width;
+    jQuery('#days-wrapper').css('-webkit-transform', 'translate3d(-'+width+'px, 0px, 0px)');
+}
+
+document.addEventListener('touchstart', function (e) { e.preventDefault(); window.scrollTo(0, 1);}, false);
+
+document.addEventListener('DOMContentLoaded', loaded, false);
+addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+
+function hideURLbar(){
+    if (window.pageYOffset < 1) {
+        window.scrollTo(0, 1);
+    }
+}
+jQuery(document).ready(function(){
+
+
+    // Select Day
+    jQuery('.day').click(function(){
+        jQuery(this).siblings().removeClass('selected');
+        jQuery(this).addClass('selected');
+    });
+
+    jQuery('.task a').click(function(){
+            jQuery(this).find(i).addClass('checked');
+            jQuery(this).removeClass('unchecked');
+    });
+
+});
+</script>
+</body>
+</html>
