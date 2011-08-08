@@ -18,16 +18,7 @@ ActiveRecord::Schema.define(:version => 20110804023812) do
     t.boolean  "scripture_study"
     t.boolean  "service"
     t.string   "notes"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "days", :force => true do |t|
-    t.boolean  "morning_prayer"
-    t.boolean  "evening_prayer"
-    t.boolean  "scripture_study"
-    t.boolean  "service"
-    t.string   "comment"
+    t.boolean  "read"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,4 +1,8 @@
 Auth::Application.routes.draw do
+  get "public/index"
+
+  get "public/mobile"
+
   resources :check_ins
 
   get "logout" => "sessions#destroy", :as => "logout"

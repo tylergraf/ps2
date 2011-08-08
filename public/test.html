@@ -3,24 +3,81 @@
 <head>
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-    <link rel="stylesheet"  type="text/css" href="/iphone4.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.css" />
+    <link rel="stylesheet"  type="text/css" href="iphone4.css" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <script type="text/javascript" src="http://cubiq.org/dropbox/iscroll4/src/iscroll.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.js"></script>
+
+
+    <script type="text/javascript">
+
+    var myScroll;
+    function loaded() {
+
+        var day = jQuery('#days-wrapper li');
+        var dayCount = day.length;
+        var dayWidth = day[0].offsetWidth;
+        width = dayWidth*dayCount;
+        jQuery('#days-wrapper').css('width',width);
+        myScroll = new iScroll('days',{vScroll: false, hScrollbar: false},100);
+        myScroll = new iScroll('tasks-wrapper',{},100);
+        width = width - document.width;
+        jQuery('#days-wrapper').css('-webkit-transform', 'translate3d(-'+width+'px, 0px, 0px)');
+        jQuery('body').animate({'opacity':'100'}, 500);
+    }
+
+    document.addEventListener('touchstart', function (e) { e.preventDefault(); window.scrollTo(0, 1);}, false);
+
+    document.addEventListener('DOMContentLoaded', loaded, false);
+
+    function hideURLbar(){
+        if (window.pageYOffset < 1) {
+            window.scrollTo(0, 1);
+        }
+    }
+
+        $(document).ready(function(){
+
+        // Select Day
+        $('.day').tap(function(){
+            if(!$(this).hasClass('future')){
+                $(this).siblings().removeClass('selected');
+                $(this).addClass('selected');
+    //            $('#days-wrapper').css('-webkit-transform', 'translate3d(-'+width+'px, 0px, 0px)');
+    //            console.log($(this).siblings());
+            }
+        });
+
+        $('.task i').tap(function(){
+                $(this).toggleClass('checked');
+                var tasksChecked = $('.checked').length;
+                $('.day.selected .day-total').text(tasksChecked);
+                $('.day.selected .day-unrecorded').removeClass();
+        });
+        hideURLbar();
+        loaded();
+
+    });
+    </script>
 </head>
 <body>
 
-<header id="header">
+<header id="header" data-role="header">
 
 </header>
-<section id="bd">
+<section id="bd" data-role="content">
     <section id="display">
         <header><h2>Daily Tasks</h2></header>
-        <section class="bd">
+        <section class="bd" id="tasks-wrapper">
             <ul id="tasks">
-                <li class="task"><a><i class="unchecked"></i></a><span>Morning Prayer</span></li>
-                <li class="task"><i class="checked"></i><span>Scripture Study</span></li>
-                <li class="task"><i class="x"></i><span>Service / Kindness</span></li>
-                <li class="task"><i class="unchecked"></i><span>Evening Prayer</span></li>
+                <li class="task"><i></i><span>Morning Prayer</span></li>
+                <li class="task"><i></i><span>Scripture Study</span></li>
+                <li class="task"><i class="checked"></i><span>Service / Kindness</span></li>
+                <li class="task"><i></i><span>Evening Prayer</span></li>
             </ul>
         </section>
     </section>
@@ -151,10 +208,11 @@
                 <p class="date">Aug 3</p>
 
             </li>
-            <li class="day">
+            <li class="day future">
                 <h2 class="day-of-week">Tomorrow</h2>
 
                 <h2 class="day-total">&ndash;</h2>
+                <i class="day-unrecorded"></i>
 
                 <p class="date">Aug 4</p>
 
@@ -162,50 +220,6 @@
         </ul>
     </section>
 </section>
-<script src="http://code.jquery.com/jquery-1.4.3.min.js"></script>
 
-<script type="application/javascript" src="http://cubiq.org/dropbox/iscroll4/src/iscroll.js"></script>
-
-<script type="text/javascript">
-
-var myScroll;
-function loaded() {
-
-    var day = jQuery('#days-wrapper li');
-    var dayCount = day.length;
-    var dayWidth = day[0].offsetWidth;
-    var width = dayWidth*dayCount;
-    jQuery('#days-wrapper').css('width',width);
-    myScroll = new iScroll('days',{hScrollbar: false},100);
-    width = width - document.width;
-    jQuery('#days-wrapper').css('-webkit-transform', 'translate3d(-'+width+'px, 0px, 0px)');
-}
-
-document.addEventListener('touchstart', function (e) { e.preventDefault(); window.scrollTo(0, 1);}, false);
-
-document.addEventListener('DOMContentLoaded', loaded, false);
-addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-
-function hideURLbar(){
-    if (window.pageYOffset < 1) {
-        window.scrollTo(0, 1);
-    }
-}
-jQuery(document).ready(function(){
-
-
-    // Select Day
-    jQuery('.day').click(function(){
-        jQuery(this).siblings().removeClass('selected');
-        jQuery(this).addClass('selected');
-    });
-
-    jQuery('.task a').click(function(){
-            jQuery(this).find(i).addClass('checked');
-            jQuery(this).removeClass('unchecked');
-    });
-
-});
-</script>
 </body>
 </html>

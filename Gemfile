@@ -13,6 +13,7 @@ gem 'coffee-script'
 gem 'uglifier'
 
 gem 'jquery-rails'
+gem "mobile-fu", "~> 0.2.1"
 
 # Use unicorn as the web server
 # gem 'unicorn'
