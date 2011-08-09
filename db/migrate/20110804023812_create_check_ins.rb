@@ -7,6 +7,7 @@ class CreateCheckIns < ActiveRecord::Migration
       t.boolean :service
       t.string :notes
       t.boolean :read
+      t.date :date
       
       t.timestamps
     end

@@ -110,7 +110,7 @@ section#days ul li {
     display:block;
     position: relative;
 	vertical-align:middle;
-	float:left;
+	float:right;
 	padding:0 10px;
 	width:80px;
 	height:100%;

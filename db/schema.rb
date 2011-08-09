@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20110804023812) do
     t.boolean  "service"
     t.string   "notes"
     t.boolean  "read"
+    t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

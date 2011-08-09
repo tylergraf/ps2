@@ -1,3 +1,44 @@
-<% @days.each do |day| %>
-  <%= day.id %>
-<% end %>
+<section id="bd" data-role="content">
+
+    <section id="display">
+        <header><h2>Daily Tasks</h2></header>
+        <section class="bd" id="tasks-wrapper">
+            <ul id="tasks">
+                <li class="task"><i></i><span>Morning Prayer</span></li>
+                <li class="task"><i></i><span>Scripture Study</span></li>
+                <li class="task"><i></i><span>Service / Kindness</span></li>
+                <li class="task"><i></i><span>Evening Prayer</span></li>
+            </ul>
+        </section>
+    </section>
+    <section id="days">
+        <ul id="days-wrapper">
+          <li class="day future">
+            <h2 class="day-of-week">Tomorrow</h2>
+            <h2 class="day-total">&ndash;</h2>
+            <i class="day-unrecorded"></i>
+            <p class="date"><%= 1.days.from_now.strftime("%b %d") %></p>
+          </li>
+            <% n = 0 %>
+            <% begin  %>
+              <li class="day" id="<%= n.days.from_now.strftime("%Y-%m-%d") %>">
+                <h2 class="day-of-week">
+                  <% if(n == 0)%>
+                    Today
+                  <% elsif (n == -1) %>
+                    Yesterday
+                  <% else %>
+                    <%= n.days.from_now.strftime("%A") %>
+                  <% end %>
+                </h2>
+                <h2 class="day-total">4</h2>
+                <i class="day-unrecorded"></i>
+                <p class="date"><%= n.days.from_now.strftime("%b %d") %></p>
+              </li>
+              <% n -=1 %>
+            <% end while n > -8 %>
+
+        </ul>
+    </section>
+</section>
+

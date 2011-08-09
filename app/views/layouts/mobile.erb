@@ -40,12 +40,13 @@
 
         // Select Day
         $('.day').tap(function(){
-            if(!$(this).hasClass('future')){
-                $(this).siblings().removeClass('selected');
-                $(this).addClass('selected');
+          if(!$(this).hasClass('future')){
+            $(this).siblings().removeClass('selected');
+            $(this).addClass('selected');
+            $('')
     //            $('#days-wrapper').css('-webkit-transform', 'translate3d(-'+width+'px, 0px, 0px)');
     //            console.log($(this).siblings());
-            }
+          }
         });
 
         $('.task i').tap(function(){
@@ -64,45 +65,11 @@
 </head>
 <body class="<%= params[:controller] %>">
   <header id="header" data-role="header"></header>
-  <section id="bd" data-role="content">
-    <section id="display">
-        <header><h2>Daily Tasks</h2></header>
-        <section class="bd" id="tasks-wrapper">
-            <ul id="tasks">
-                <li class="task"><i></i><span>Morning Prayer</span></li>
-                <li class="task"><i></i><span>Scripture Study</span></li>
-                <li class="task"><i class="checked"></i><span>Service / Kindness</span></li>
-                <li class="task"><i></i><span>Evening Prayer</span></li>
-            </ul>
-        </section>
-    </section>
-    <section id="days">
-        <ul id="days-wrapper">
-            <li class="day">
-                <h2 class="day-of-week">Monday</h2>
 
-                <h2 class="day-total">4</h2>
-                <i class="day-unrecorded"></i>
-                <p class="date">Jul 28</p>
-
-            </li>
-            <li class="day future">
-                <h2 class="day-of-week">Tomorrow</h2>
-
-                <h2 class="day-total">&ndash;</h2>
-                <i class="day-unrecorded"></i>
-
-                <p class="date">Aug 4</p>
-
-            </li>
-        </ul>
-    </section>
-</section>
-  <div id="container">
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
     <% end %>
     <%= yield %>
-  </div>
+
 </body>
 </html>
