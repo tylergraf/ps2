@@ -142,8 +142,8 @@ section#days ul li {
         border-radius: 5px;
         height: 6px;
         width: 6px;
-        left: 20px;
-        bottom: 14px;
+        left: 15px;
+        bottom: 17px;
 
     }
 section#days ul li.selected {
@@ -181,7 +181,7 @@ section#days ul li p.date {
     color: #b5b8c0;
     text-shadow: 0px -1px 0px #000000;
     filter: dropshadow(color=#000000, offx=0, offy=-1);
-    margin-top: 16px;
+    margin-top: 32px;
 
 }
 section#days ul li h2.day-total {
@@ -193,6 +193,6 @@ section#days ul li h2.day-total {
     color: #b5b8c0;
     text-shadow: 0px -1px 0px #000000;
     filter: dropshadow(color=#000000, offx=0, offy=-1);
-    margin-top: 10px;
+    margin-top: 24px;
 
 }

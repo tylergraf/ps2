@@ -7,6 +7,7 @@
     <th>Scripture study</th>
     <th>Service</th>
     <th>Notes</th>
+    <th>Date</th>
     <th>Read</th>
     <th></th>
     <th></th>
@@ -20,6 +21,7 @@
     <td><%= check_in.scripture_study %></td>
     <td><%= check_in.service %></td>
     <td><%= check_in.notes %></td>
+    <td><%= check_in.date %></td>
     <td><%= check_in.read %></td>
     <td><%= link_to 'Show', check_in %></td>
     <td><%= link_to 'Edit', edit_check_in_path(check_in) %></td>
@@ -31,3 +33,33 @@
 <br />
 
 <%= link_to 'New Check in', new_check_in_path %>
+<br>
+<br>
+
+<section id="bd" data-role="content">
+
+    <section id="display">
+        <header><h2>Daily Tasks</h2></header>
+        <section class="bd" id="tasks-wrapper">
+            <ul id="tasks">
+                <li class="task"><i></i><span>Morning Prayer</span></li>
+                <li class="task"><i></i><span>Scripture Study</span></li>
+                <li class="task"><i></i><span>Service / Kindness</span></li>
+                <li class="task"><i></i><span>Evening Prayer</span></li>
+            </ul>
+        </section>
+    </section>
+
+
+        <!--</ul>-->
+
+    <!--</section>-->
+
+</section>
+ <p><%= @days %></p>
+
+
+
+
+
+

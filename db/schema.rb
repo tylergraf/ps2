@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(:version => 20110804023812) do
 
   create_table "check_ins", :force => true do |t|
+    t.integer  "user_id"
     t.boolean  "morning_prayer"
     t.boolean  "evening_prayer"
     t.boolean  "scripture_study"
@@ -20,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20110804023812) do
     t.string   "notes"
     t.boolean  "read"
     t.date     "date"
+    t.string   "total"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

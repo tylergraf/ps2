@@ -2,8 +2,10 @@ Auth::Application.routes.draw do
   get "public/index"
 
   get "public/mobile"
+  get "check_ins/get_checkin"
 
   resources :check_ins
+  resources :public
 
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"

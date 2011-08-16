@@ -1,4 +1,4 @@
-<%= form_for(@check_in) do |f| %>
+<%= form_for @check_in, :html => {:multipart => true, :remote => true } do |f| %>
   <% if @check_in.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@check_in.errors.count, "error") %> prohibited this check_in from being saved:</h2>
@@ -10,6 +10,10 @@
       </ul>
     </div>
   <% end %>
+
+
+
+  <%=  f.hidden_field :user_id, :value => current_user.id %>
 
   <div class="field">
     <%= f.label :morning_prayer %><br />
@@ -29,7 +33,15 @@
   </div>
   <div class="field">
     <%= f.label :read %><br />
-    <%= f.check_box :service %>
+    <%= f.check_box :read %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.text_field :date %>
+  </div>
+  <div class="field">
+    <%= f.label :total %><br />
+    <%= f.text_field :total %>
   </div>
   <div class="field">
     <%= f.label :notes %><br />

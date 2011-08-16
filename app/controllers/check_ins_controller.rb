@@ -3,6 +3,7 @@ class CheckInsController < ApplicationController
   # GET /check_ins.json
   def index
     @check_ins = CheckIn.all
+    @days = CheckIn.get_past_check_ins(current_user.id, 8)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +15,17 @@ class CheckInsController < ApplicationController
   # GET /check_ins/1.json
   def show
     @check_in = CheckIn.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @check_in }
+    end
+  end
+
+  # GET /check_ins/get_checkin
+  # GET /check_ins/get_checkin/1.json
+  def get_checkin
+    @check_in = CheckIn.where(:user_id => current_user.id,:date => params[:date])
 
     respond_to do |format|
       format.html # show.html.erb

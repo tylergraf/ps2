@@ -3,42 +3,38 @@
     <section id="display">
         <header><h2>Daily Tasks</h2></header>
         <section class="bd" id="tasks-wrapper">
-            <ul id="tasks">
-                <li class="task"><i></i><span>Morning Prayer</span></li>
-                <li class="task"><i></i><span>Scripture Study</span></li>
-                <li class="task"><i></i><span>Service / Kindness</span></li>
-                <li class="task"><i></i><span>Evening Prayer</span></li>
+            <ul id="tasks" user="<%= @current_user.id %>">
+                <li class="task" id="morning_prayer"><i></i><span>Morning Prayer</span></li>
+                <li class="task" id="scripture_study"><i></i><span>Scripture Study</span></li>
+                <li class="task" id="service"><i></i><span>Service / Kindness</span></li>
+                <li class="task" id="evening_prayer"><i></i><span>Evening Prayer</span></li>
             </ul>
         </section>
     </section>
     <section id="days">
         <ul id="days-wrapper">
-          <li class="day future">
-            <h2 class="day-of-week">Tomorrow</h2>
-            <h2 class="day-total">&ndash;</h2>
-            <i class="day-unrecorded"></i>
-            <p class="date"><%= 1.days.from_now.strftime("%b %d") %></p>
-          </li>
-            <% n = 0 %>
-            <% begin  %>
-              <li class="day" id="<%= n.days.from_now.strftime("%Y-%m-%d") %>">
+          <% today = Time.now %>
+          <% yesterday = today - 1.day %>
+          <% tomorrow = today + 1.day %>
+          <% @days.each do |day| %>
+              <li class="day <% if(today.strftime("%Y-%m-%d") == day.date.strftime("%Y-%m-%d"))%>selected <% end %><% if(!day.read)%>un-<% end %>recorded" id="<%= day.id %>">
                 <h2 class="day-of-week">
-                  <% if(n == 0)%>
+                  <% if(today.strftime("%Y-%m-%d") == day.date.strftime("%Y-%m-%d"))%>
                     Today
-                  <% elsif (n == -1) %>
+                  <% elsif (tomorrow.strftime("%Y-%m-%d") == day.date.strftime("%Y-%m-%d") ) %>
+                    Tomorrow
+                  <% elsif (yesterday.strftime("%Y-%m-%d") == day.date.strftime("%Y-%m-%d") ) %>
                     Yesterday
                   <% else %>
-                    <%= n.days.from_now.strftime("%A") %>
+                  <%= day.date.strftime("%A") %>
                   <% end %>
                 </h2>
-                <h2 class="day-total">4</h2>
-                <i class="day-unrecorded"></i>
-                <p class="date"><%= n.days.from_now.strftime("%b %d") %></p>
+                <h2 class="day-total"><%= day.total.html_safe %></h2>
+                <p class="date" id="<%= day.date %>"><%= day.date.strftime("%b %d") %></p>
               </li>
-              <% n -=1 %>
-            <% end while n > -8 %>
-
+            <% end %>
         </ul>
     </section>
+
 </section>
 
