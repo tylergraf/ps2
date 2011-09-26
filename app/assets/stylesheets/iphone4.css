@@ -1,199 +1,199 @@
-/* html5doctor.com Reset Stylesheetv1.6.1Last Updated: 2010-09-17Author: Richard Clark - http://richclarkdesign.com Twitter: @rich_clark*/html, body, div, span, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,abbr, address, cite, code,del, dfn, em, img, ins, kbd, q, samp,small, strong, sub, sup, var,b, i,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary,time, mark, audio, video {    margin:0;    padding:0;    border:0;    outline:0;    font-size:100%;    vertical-align:baseline;    background:transparent;}body {    line-height:1;}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {     display:block;}nav ul {    list-style:none;}blockquote, q {    quotes:none;}blockquote:before, blockquote:after,q:before, q:after {    content:'';    content:none;}a {    margin:0;    padding:0;    font-size:100%;    vertical-align:baseline;    background:transparent;}/* change colours to suit your needs */ins {    background-color:#ff9;    color:#000;    text-decoration:none;}/* change colours to suit your needs */mark {    background-color:#ff9;    color:#000;     font-style:italic;    font-weight:bold;}del {    text-decoration: line-through;}abbr[title], dfn[title] {    border-bottom:1px dotted;    cursor:help;}table {    border-collapse:collapse;    border-spacing:0;}/* change border colour to suit your needs */hr {    display:block;    height:1px;    border:0;       border-top:1px solid #cccccc;    margin:1em 0;    padding:0;}input, select {    vertical-align:middle;}
-.ui-loader {
-    display: none;
-}
-.ui-content {
-    padding: 0;
-}
-.ui-page {
-    min-height: 435px;
-    max-height: 435px;
-    height: 435px;
-}
-body {
-    font-family: "Proxima Nova","Helvetica Neue";
-}
-header#header {
-    background-color: #2d2d33;
-    height: 45px;
-    width: 100%;
-}
-section#display {
-    height: 235px;
-    background-color: #f2f2f2;
+/* html5doctor.com Reset Stylesheetv1.6.1Last Updated: 2010-09-17Author: Richard Clark - http://richclarkdesign.com Twitter: @rich_clark*//*html, body, div, span, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,abbr, address, cite, code,del, dfn, em, img, ins, kbd, q, samp,small, strong, sub, sup, var,b, i,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary,time, mark, audio, video {    margin:0;    padding:0;    border:0;    outline:0;    font-size:100%;    vertical-align:baseline;    background:transparent;}body {    line-height:1;}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {     display:block;}nav ul {    list-style:none;}blockquote, q {    quotes:none;}blockquote:before, blockquote:after,q:before, q:after {    content:'';    content:none;}a {    margin:0;    padding:0;    font-size:100%;    vertical-align:baseline;    background:transparent;}*//* change colours to suit your needs *//*ins {    background-color:#ff9;    color:#000;    text-decoration:none;}*//* change colours to suit your needs *//*mark {    background-color:#ff9;    color:#000;     font-style:italic;    font-weight:bold;}del {    text-decoration: line-through;}abbr[title], dfn[title] {    border-bottom:1px dotted;    cursor:help;}table {    border-collapse:collapse;    border-spacing:0;}*//* change border colour to suit your needs *//*hr {    display:block;    height:1px;    border:0;       border-top:1px solid #cccccc;    margin:1em 0;    padding:0;}input, select {    vertical-align:middle;}*/
+/*.ui-loader {*/
+    /*display: none;*/
+/*}*/
+/*.ui-content {*/
+    /*padding: 0;*/
+/*}*/
+/*.ui-page {*/
+    /*min-height: 435px;*/
+    /*max-height: 435px;*/
+    /*height: 435px;*/
+/*}*/
+/*body {*/
+    /*font-family: "Proxima Nova","Helvetica Neue";*/
+/*}*/
+/*header#header {*/
+    /*background-color: #2d2d33;*/
+    /*height: 45px;*/
+    /*width: 100%;*/
+/*}*/
+/*section#display {*/
+    /*height: 235px;*/
+    /*background-color: #f2f2f2;*/
 
-    
-}
-#display header {
-    background-image: -webkit-gradient(
-        linear,
-        left bottom,
-        left top,
-        color-stop(0.3, #dbdedf),
-        color-stop(0.96, #f1f1f0)
-    );
-    background-image: -moz-linear-gradient(
-        center bottom,
-        #dbdedf 30%,
-         #f1f1f0 96%
-    );
-}
-#tasks-wrapper {
-    max-height: 200px;
-}
-#display header h2 {
-    text-transform: uppercase;
-    font-weight: 600;
-    color: #292929;
-    line-height: 40px;
-    margin-left: 30px;
-    font-size: 20px;
-}
+    /**/
+/*}*/
+/*#display header {*/
+    /*background-image: -webkit-gradient(*/
+        /*linear,*/
+        /*left bottom,*/
+        /*left top,*/
+        /*color-stop(0.3, #dbdedf),*/
+        /*color-stop(0.96, #f1f1f0)*/
+    /*);*/
+    /*background-image: -moz-linear-gradient(*/
+        /*center bottom,*/
+        /*#dbdedf 30%,*/
+         /*#f1f1f0 96%*/
+    /*);*/
+/*}*/
+/*#tasks-wrapper {*/
+    /*max-height: 200px;*/
+/*}*/
+/*#display header h2 {*/
+    /*text-transform: uppercase;*/
+    /*font-weight: 600;*/
+    /*color: #292929;*/
+    /*line-height: 40px;*/
+    /*margin-left: 30px;*/
+    /*font-size: 20px;*/
+/*}*/
 
-#display #tasks {
-    margin-left: 30px;
-    list-style: none;
-}
-#display .task {
-    margin: 6px 0;
-    text-transform: uppercase;
-    font-weight: 100;
-    width: 100%;
-    float: left;
-}
-#display .task span {
-    margin-left: 12px;
-    float: left;
-    margin-top: 12px;
-}
-#display .task i {
-    float: left;
-    display: block;
-    background: transparent url(../images/task_sprite.png) no-repeat scroll 0 0;
-    background-size:109px 36px;
-    margin-right: 8px;
-}
-#display .task i {
-    background-position: -33px 0px;
-    height: 36px;
-    width: 34px;
-}
-#display .task i.checked{
-    background-position: -67px 0px;
-    height: 36px;
-    width: 42px;
-    margin-right: 0;
+/*#display #tasks {*/
+    /*margin-left: 30px;*/
+    /*list-style: none;*/
+/*}*/
+/*#display .task {*/
+    /*margin: 6px 0;*/
+    /*text-transform: uppercase;*/
+    /*font-weight: 100;*/
+    /*width: 100%;*/
+    /*float: left;*/
+/*}*/
+/*#display .task span {*/
+    /*margin-left: 12px;*/
+    /*float: left;*/
+    /*margin-top: 12px;*/
+/*}*/
+/*#display .task i {*/
+    /*float: left;*/
+    /*display: block;*/
+    /*background: transparent url(../images/task_sprite.png) no-repeat scroll 0 0;*/
+    /*background-size:109px 36px;*/
+    /*margin-right: 8px;*/
+/*}*/
+/*#display .task i {*/
+    /*background-position: -33px 0px;*/
+    /*height: 36px;*/
+    /*width: 34px;*/
+/*}*/
+/*#display .task i.checked{*/
+    /*background-position: -67px 0px;*/
+    /*height: 36px;*/
+    /*width: 42px;*/
+    /*margin-right: 0;*/
 
-}
-#display .task i.x {
-    background-position: 0px 0px;
-    height: 21px;
-    width: 20px;
-    margin-right: 5px;
+/*}*/
+/*#display .task i.x {*/
+    /*background-position: 0px 0px;*/
+    /*height: 21px;*/
+    /*width: 20px;*/
+    /*margin-right: 5px;*/
 
-}
+/*}*/
 
 
-section#days ul {
-    height: 130px;
-    list-style:none;
-	display:block;
-	float:left;
+/*section#days ul {*/
+    /*height: 130px;*/
+    /*list-style:none;*/
+	/*display:block;*/
+	/*float:left;*/
 	/*height:100%;*/
-	padding:0;
-	margin:0;
-	text-align:left;
-    border-top: 5px solid rgb(79,79,82);
+	/*padding:0;*/
+	/*margin:0;*/
+	/*text-align:left;*/
+    /*border-top: 5px solid rgb(79,79,82);*/
 
-}
-section#days ul li {
-    display:block;
-    position: relative;
-	vertical-align:middle;
-	float:right;
-	padding:0 10px;
-	width:80px;
-	height:100%;
-	border-left:1px solid #111;
+/*}*/
+/*section#days ul li {*/
+    /*display:block;*/
+    /*position: relative;*/
+	/*vertical-align:middle;*/
+	/*float:right;*/
+	/*padding:0 10px;*/
+	/*width:80px;*/
+	/*height:100%;*/
+	/*border-left:1px solid #111;*/
     /*-webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(#111), to(#333), color-stop(0.5, #fff), color-stop(0.5, #66cc00)) 0 0 0 1 repeat repeat;*/
 
-	background-color:#fafafa;
-	font-size:14px;
-    background-image: -webkit-gradient(
-        linear,
-        left bottom,
-        left top,
-        color-stop(0.3, rgb(52,53,58)),
-        color-stop(0.96, rgb(96,96,101))
-    );
-    background-image: -moz-linear-gradient(
-        center bottom,
-        rgb(52,53,58) 30%,
-        rgb(96,96,101) 96%
-    );
+	/*background-color:#fafafa;*/
+	/*font-size:14px;*/
+    /*background-image: -webkit-gradient(*/
+        /*linear,*/
+        /*left bottom,*/
+        /*left top,*/
+        /*color-stop(0.3, rgb(52,53,58)),*/
+        /*color-stop(0.96, rgb(96,96,101))*/
+    /*);*/
+    /*background-image: -moz-linear-gradient(*/
+        /*center bottom,*/
+        /*rgb(52,53,58) 30%,*/
+        /*rgb(96,96,101) 96%*/
+    /*);*/
 
 
 
-}
-.day-unrecorded {
-        position: absolute;
-        display: block;
-        background: greenyellow;
-        border-radius: 5px;
-        height: 6px;
-        width: 6px;
-        left: 15px;
-        bottom: 17px;
+/*}*/
+/*.day-unrecorded {*/
+        /*position: absolute;*/
+        /*display: block;*/
+        /*background: greenyellow;*/
+        /*border-radius: 5px;*/
+        /*height: 6px;*/
+        /*width: 6px;*/
+        /*left: 15px;*/
+        /*bottom: 17px;*/
 
-    }
-section#days ul li.selected {
-    background-image: -webkit-gradient(
-        linear,
-        left bottom,
-        left top,
-        color-stop(0.3, rgb(37,38,41)),
-        color-stop(0.96, rgb(79,79,82))
-    );
-    background-image: -moz-linear-gradient(
-        center bottom,
-        rgb(37,38,41) 30%,
-        rgb(79,79,82) 96%
-    );
-}
-section#days ul li h2.day-of-week {
-    font-weight: bold;
-    font-size: 12px;
-    text-align: center;
-    width: 100%;
-    text-transform: uppercase;
-    color: #b5b8c0;
-    text-shadow: 0px -1px 0px #000000;
-    filter: dropshadow(color=#000000, offx=0, offy=-1);
-    margin-top: 8px;
+    /*}*/
+/*section#days ul li.selected {*/
+    /*background-image: -webkit-gradient(*/
+        /*linear,*/
+        /*left bottom,*/
+        /*left top,*/
+        /*color-stop(0.3, rgb(37,38,41)),*/
+        /*color-stop(0.96, rgb(79,79,82))*/
+    /*);*/
+    /*background-image: -moz-linear-gradient(*/
+        /*center bottom,*/
+        /*rgb(37,38,41) 30%,*/
+        /*rgb(79,79,82) 96%*/
+    /*);*/
+/*}*/
+/*section#days ul li h2.day-of-week {*/
+    /*font-weight: bold;*/
+    /*font-size: 12px;*/
+    /*text-align: center;*/
+    /*width: 100%;*/
+    /*text-transform: uppercase;*/
+    /*color: #b5b8c0;*/
+    /*text-shadow: 0px -1px 0px #000000;*/
+    /*filter: dropshadow(color=#000000, offx=0, offy=-1);*/
+    /*margin-top: 8px;*/
 
-}
-section#days ul li p.date {
-    font-weight: bold;
-    font-size: 12px;
-    text-align: center;
-    width: 100%;
-    text-transform: capitalize;
-    color: #b5b8c0;
-    text-shadow: 0px -1px 0px #000000;
-    filter: dropshadow(color=#000000, offx=0, offy=-1);
-    margin-top: 16px;
-    line-height: 12px;
+/*}*/
+/*section#days ul li p.date {*/
+    /*font-weight: bold;*/
+    /*font-size: 12px;*/
+    /*text-align: center;*/
+    /*width: 100%;*/
+    /*text-transform: capitalize;*/
+    /*color: #b5b8c0;*/
+    /*text-shadow: 0px -1px 0px #000000;*/
+    /*filter: dropshadow(color=#000000, offx=0, offy=-1);*/
+    /*margin-top: 16px;*/
+    /*line-height: 12px;*/
 
-}
-section#days ul li h2.day-total {
-    font-weight: bold;
-    font-size: 60px;
-    line-height: 60px;
-    text-align: center;
-    width: 100%;
-    text-transform: uppercase;
-    color: #b5b8c0;
-    text-shadow: 0px -1px 0px #000000;
-    filter: dropshadow(color=#000000, offx=0, offy=-1);
+/*}*/
+/*section#days ul li h2.day-total {*/
+    /*font-weight: bold;*/
+    /*font-size: 60px;*/
+    /*line-height: 60px;*/
+    /*text-align: center;*/
+    /*width: 100%;*/
+    /*text-transform: uppercase;*/
+    /*color: #b5b8c0;*/
+    /*text-shadow: 0px -1px 0px #000000;*/
+    /*filter: dropshadow(color=#000000, offx=0, offy=-1);*/
 
-}
+/*}*/
