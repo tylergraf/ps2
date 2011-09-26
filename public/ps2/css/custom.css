@@ -1,0 +1,67 @@
+table tr {
+    background: #f7f7f7;
+}
+table {
+    width: 100%;
+}
+table tr:nth-child(even) {
+    background: #fbfbfb;
+}
+table td {
+    border: 2px solid #e0e0e0;
+}
+table th, table td {
+    text-align: center;
+    vertical-align: middle;
+}
+thead td h2 {
+    font-weight: 600;
+    font-family: "Proxima Nova Condensed", sans-serif;
+    color: #666;
+}
+table th h3 {
+    font-size: 16px;
+    font-family: "Proxima Nova Extra Condensed", sans-serif;
+    color: #fff;
+    line-height: 16px;
+}
+table thead tr:last-child {
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.08, rgb(97,97,97)),
+        color-stop(0.77, rgb(131,131,131))
+    );
+    background-image: -moz-linear-gradient(
+        center bottom,
+        rgb(97,97,97) 8%,
+        rgb(131,131,131) 77%
+    );
+    height: 50px;
+}
+table td:first-child {
+    background-color: #eceeef;
+}
+
+table .day {
+    width: 24px;
+}
+table .morning-prayer {
+    width: 50px;
+}
+table .evening-prayer {
+    width: 50px;
+}
+table .scripture-study {
+    width: 50px;
+}
+table .service {
+    width: 50px;
+}
+table .daily-total {
+    width: 20px;
+}
+table .notes {
+    width: 50%;
+}

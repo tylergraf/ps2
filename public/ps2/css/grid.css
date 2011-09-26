@@ -1,0 +1,30 @@
+/*  The Grid - "I got in!" */
+
+.grid-1  { width: 8.33333333333333%; }
+.grid-2  { width: 16.6666666666667%; }
+.grid-3  { width: 25%;               }
+.grid-4  { width: 33.3333333333333%; }
+.grid-5  { width: 41.6666666666667%; }
+.grid-6  { width: 50%;               }
+.grid-7  { width: 58.3333333333333%; }
+.grid-8  { width: 66.6666666666666%; }
+.grid-9  { width: 75%;               }
+.grid-10 { width: 83.3333333333333%; }
+.grid-11 { width: 91.6666666666666%; }
+.grid-12 { width: 100%;              }
+
+.grid-1,
+.grid-2,
+.grid-3,
+.grid-4,
+.grid-5,
+.grid-6,
+.grid-7,
+.grid-8,
+.grid-9,
+.grid-10,
+.grid-11,
+.grid-12 {
+	float: left;
+	display: block;
+}

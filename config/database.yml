@@ -10,7 +10,7 @@
 #  timeout: 5000
 
 development:
-  adapter: mysql
+  adapter: mysql2
   encoding: utf8
   database: ps2_development
   username: root

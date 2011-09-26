@@ -1,0 +1,12 @@
+<%= form_for @check_in, :html => {:multipart => true, :remote => true } do |f| %>
+    <%=  f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.check_box :morning_prayer %>
+    <%= f.check_box :evening_prayer %>
+    <%= f.check_box :scripture_study %>
+    <%= f.check_box :service %>
+    <%= f.check_box :read %>
+    <%= f.text_field :date %>
+    <%= f.text_field :total %>
+    <%= f.text_field :notes %>
+    <%= f.submit %>
+<% end %>

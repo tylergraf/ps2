@@ -1,0 +1,54 @@
+/* Defaults and Overrides of core.css*/
+body { font:14px/20px  "Helvetica Neue", Helvetica, Arial, sans-serif; color: #4f2f11;}
+.pn-light{font-family:"Proxima Nova Light", Helvetica, Arial, sans-serif }
+.pn-reg{font-family:"Proxima Nova Regular", Helvetica, Arial, sans-serif }
+
+
+a, a:active, a:visited { color: #3883a8; text-decoration:none;  }
+a:hover { color: #3883a8; text-decoration:underline; }
+
+::-moz-selection{ background: #edbb54; color:#fff; text-shadow: none; }
+::selection { background:#edbb54; color:#fff; text-shadow: none; }
+a:link { -webkit-tap-highlight-color: #edbb54; }
+
+
+
+
+
+h1, .h1 {
+    font-size:28px;
+    color:#4F2F11;
+    font-family:"Proxima Nova Bold", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+}
+h2, .h2 {
+    font-size:22px;
+    color:#4F2F11;
+    font-weight:normal;
+    font-family:"Proxima Nova Light", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    line-height: 30px;
+}
+h3, .h3 {
+    font-size:18px;
+    text-transform: uppercase;
+    color:#4F2F11;
+    font-family:"Proxima Nova Semi", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+}
+h4, .h4 {
+    text-transform:uppercase;
+    font-size:16px;
+    font-family:"Proxima Nova Regular", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+}
+h5, .h5 {
+    font-size:100%;
+    font-family:"Proxima Nova Regular", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+}
+h6, .h6 {
+    font-size:100%;
+    font-family:"Proxima Nova Regular", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+}

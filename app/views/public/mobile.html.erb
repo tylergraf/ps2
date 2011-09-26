@@ -3,21 +3,22 @@
     <section id="display">
         <header><h2>Daily Tasks</h2></header>
         <section class="bd" id="tasks-wrapper">
-            <ul id="tasks" user="<%= @current_user.id %>">
-                <li class="task" id="morning_prayer"><i></i><span>Morning Prayer</span></li>
-                <li class="task" id="scripture_study"><i></i><span>Scripture Study</span></li>
-                <li class="task" id="service"><i></i><span>Service / Kindness</span></li>
-                <li class="task" id="evening_prayer"><i></i><span>Evening Prayer</span></li>
+            <ul id="tasks">
+                <li class="task"><i></i><span>Morning Prayer</span></li>
+                <li class="task"><i></i><span>Scripture Study</span></li>
+                <li class="task"><i></i><span>Service / Kindness</span></li>
+                <li class="task"><i></i><span>Evening Prayer</span></li>
             </ul>
         </section>
     </section>
     <section id="days">
         <ul id="days-wrapper">
+
           <% today = Time.now %>
           <% yesterday = today - 1.day %>
           <% tomorrow = today + 1.day %>
           <% @days.each do |day| %>
-              <li class="day <% if(today.strftime("%Y-%m-%d") == day.date.strftime("%Y-%m-%d"))%>selected <% end %><% if(!day.read)%>un-<% end %>recorded" id="<%= day.id %>">
+              <li class="day" id="<%= day.date %>">
                 <h2 class="day-of-week">
                   <% if(today.strftime("%Y-%m-%d") == day.date.strftime("%Y-%m-%d"))%>
                     Today
@@ -30,11 +31,14 @@
                   <% end %>
                 </h2>
                 <h2 class="day-total"><%= day.total.html_safe %></h2>
-                <p class="date" id="<%= day.date %>"><%= day.date.strftime("%b %d") %></p>
+                <% if(!day.read || tomorrow.strftime("%Y-%m-%d") != day.date.strftime("%Y-%m-%d"))%>
+                <i class="day-unrecorded"></i>
+                <% end %>
+                <p class="date"><%= day.date.strftime("%b %d") %></p>
               </li>
             <% end %>
         </ul>
     </section>
 
-</section>
 
+</section>

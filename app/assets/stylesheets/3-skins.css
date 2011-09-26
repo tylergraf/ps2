@@ -1,0 +1,462 @@
+/* tempate
+-----------------*/
+.left .left-ext-220 {
+  width: 220px;
+}
+
+/* mod
+-----------------*/
+.mod-skin-base {
+  padding: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 1px #ccc;
+  -moz-box-shadow: 0 1px 2px #ccc;
+  -webkit-box-shadow: 0 1px 2px #ccc;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: #bbbbbb;
+}
+
+.mod-skin-base {
+}
+
+.mod-signup {
+  background-color: #ebf5ff;
+  box-shadow: 0 1px 1px #ccc;
+  -moz-box-shadow: 0 1px 2px #ccc;
+  -webkit-box-shadow: 0 1px 2px #ccc;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.mod-signup .mod-header h4 {
+  display: block;
+  text-indent: -9999px;
+  margin-bottom: 0;
+  margin-top: 5px;
+  width: 257px;
+  height: 40px;
+  background: url(images/_email-signup-header.png) no-repeat 0 0;
+}
+
+.mod-signup form {
+  position: relative;
+}
+
+.mod-signup .signup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.mod-signup .mce-responses {
+  margin: 10px;
+}
+
+.mod-signup .footnote {
+  clear: both;
+  margin-top: 0;
+  color: #6f89a1;
+}
+
+.mod-facebook {
+  padding: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 1px #ccc;
+  -moz-box-shadow: 0 1px 2px #ccc;
+  -webkit-box-shadow: 0 1px 2px #ccc;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: #bbbbbb;
+}
+
+.mod-skin-trans {
+}
+
+.mod-skin-trans .mod-body {
+  background: #f4f1ea;
+  background-color: rgba(0, 0, 0, .02);
+  border-radius: 3px 3px 3px 3px;
+  border: solid 1px #ece9e3;
+}
+
+.mod-skin-store-tile {
+  padding: 11px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 1px #ccc;
+  -moz-box-shadow: 0 1px 2px #ccc;
+  -webkit-box-shadow: 0 1px 2px #ccc;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: #bbbbbb;
+}
+
+.mod-skin-store-info .mod-header .h2,
+.mod-skin-store-info .mod-header .h3,
+.mod-skin-store-info .mod-header .h4 {
+  margin-bottom: 7px;
+  margin-top: 5px;
+}
+
+.mod-skin-store-info .store-image {
+  text-align: center;
+}
+
+.mod-skin-store-info .store-link {
+  margin-top: 10px;
+  display: block;
+}
+
+/* media
+-----------------*/
+.media-skin-coupon {
+  clear: left;
+  padding: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 1px #ccc;
+  -moz-box-shadow: 0 1px 2px #ccc;
+  -webkit-box-shadow: 0 1px 2px #ccc;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: #bbbbbb;
+}
+
+.media-skin-coupon > .cutout > .media-body {
+  height: 110px;
+}
+
+.media-skin-coupon .cutout {
+  padding: 10px;
+  border: 2px dashed #ddd;
+}
+
+.media-skin-coupon .actions {
+  position: relative;
+  min-height: 40px;
+  padding: 8px 15px;
+  background: #f5f5ed;
+  margin-left: 10px;
+}
+
+.media-skin-minstore {
+}
+
+.media-skin-minstore:hover {
+  text-decoration: none;
+}
+
+.media-skin-minstore .media-block {
+  margin-right: 10px;
+}
+
+.media-skin-minstore .media-block img {
+  width: 58px;
+}
+
+.media-skin-minstore .media-body {
+}
+
+.media-coupon .expire {
+  color: #9d9d9d;
+  font-size: 12px;
+  text-transform: none;
+  font-weight: normal;
+}
+
+.media-coupon  .actions .store {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.media-coupon .actions .share-links {
+  margin: 0;
+  margin-top: 5px;
+
+}
+
+.media-coupon .share-links li,
+.media-coupon .share-details li {
+  display: inline;
+  font-size: 11px;
+}
+
+.media-coupon .redeem {
+  position: absolute;
+  top: 17px;
+  right: 17px;
+}
+
+.media-coupon .comment-list {
+  padding: 10px;
+  background: #eaeaea;
+  margin: 0 8px;
+  position: relative;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+
+.media-coupon .comment {
+  margin: 10px 0;
+}
+
+.base2 {
+  background-color: #ffffff;
+  box-shadow: 0 1px 1px #ccc;
+  -moz-box-shadow: 0 1px 2px #ccc;
+  -webkit-box-shadow: 0 1px 2px #ccc;
+  color: #bbbbbb;
+  padding: 10px;
+}
+
+.transparent .bd {
+  background-color: #f5f2eb;
+  box-shadow: 0 1px 1px #ccc;
+  -moz-box-shadow: 0 1px 2px #ccc;
+  -webkit-box-shadow: 0 1px 2px #ccc;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.comment-box {
+  display: none;
+  background-color: rgba(190, 190, 190, 0.2);
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  top: -10px;
+  width: 540px;
+}
+
+.redirect {
+
+  background-color: #ffffff;
+  box-shadow: 0 1px 1px #ccc;
+  -moz-box-shadow: 0 1px 2px #ccc;
+  -webkit-box-shadow: 0 1px 2px #ccc;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: #bbbbbb;
+  padding: 10px;
+
+}
+
+/* page
+-----------------*/
+.page-dd {
+  background-color: #ffffff;
+  box-shadow: 0 1px 1px #ccc;
+  -moz-box-shadow: 0 1px 2px #ccc;
+  -webkit-box-shadow: 0 1px 2px #ccc;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 0 10px 10px 10px;
+}
+
+.page-narrow {
+  width: 600px
+}
+
+/* menu
+-----------------*/
+.menu-skin-main {
+  position: absolute;
+  top: 114px;
+}
+
+.menu-skin-main li {
+  margin: 0 10px 0 0;;
+  padding: 0 10px;
+}
+
+.menu-skin-main li.selected {
+  background: url(images/bg-page.gif);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  -moz-border-top-left-radius: 5px;
+  -moz-border-top-left-radius: 5px;
+}
+
+.menu-skin-main li a {
+  height: 36px;
+  line-height: 36px;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: normal;
+  color: #3c5d35;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.menu-skin-main li.selected a {
+  color: #4f2f11;
+  font-weight: bold;
+}
+
+.menu-skin-coupon {
+  border-bottom: solid 2px #eae7e0;
+}
+
+.menu-skin-coupon .selected a, .menu-skin-coupon a:hover {
+  color: #4f2f11;
+  border-bottom: solid 2px #8c6239;
+  position: relative;
+  border-bottom: 2px solid #4f2f11;
+}
+
+.menu-skin-coupon li a {
+  text-decoration: none;
+  height: 26px;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: #3883a8;
+  line-height: 26px;
+  padding-bottom: 6px;
+}
+
+/*************************************
+                Table
+**************************************/
+
+/* simple table @extends data table */
+.simpleTable {
+  padding: 20px; /* doesn't this break stuff??? ok for win & mac on Safari, FF, chrome, opera. OK on IE6/7/8.   */
+}
+
+.simpleTable table {
+  border: 1px solid #AE0345;
+}
+
+.simpleTable th, .simpleTable td {
+  border: 1px solid #AE0345;
+}
+
+.simpleTable thead tr {
+  background-color: #fff0f8;
+}
+
+.simpleTable th {
+  color: #000;
+  font-weight: bold
+}
+
+/* specification table @extends data table */
+.spec {
+  padding: 10px;
+}
+
+.spec table {
+  border-top: 1px solid #e2e2e2;
+  border-bottom-color: #fff;
+  border-left: none;
+  border-right: none;
+}
+
+.spec th, .spec td {
+  border: 1px solid #e2e2e2;
+  border-width: 1px 0;
+  padding-left: 0;
+}
+
+.spec .odd, .spec .even {
+  background-color: #fff;
+}
+
+.mod-table {
+
+}
+
+.mod-table tr {
+  background: #f7f7f7;
+  height: 30px;
+}
+
+.mod-table {
+  width: 100%;
+}
+
+.mod-table tr:nth-child(even) {
+  background: #fbfbfb;
+}
+
+.mod-table td {
+  border: 2px solid #e0e0e0;
+  text-align: center;
+  vertical-align: middle;
+  
+}
+
+.mod-table th, .mod-table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+thead td h2 {
+  font-weight: 600;
+  font-family: "Proxima Nova Condensed", sans-serif;
+  color: #666;
+  text-transform: uppercase;
+
+}
+
+.mod-table th h3 {
+  font-size: 16px;
+  font-family: "Proxima Nova Extra Condensed", sans-serif;
+  color: #fff;
+  line-height: 16px;
+}
+
+.mod-table thead tr:last-child {
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.08, rgb(97, 97, 97)), color-stop(0.77, rgb(131, 131, 131)));
+  background-image: -moz-linear-gradient(center bottom, rgb(97, 97, 97) 8%, rgb(131, 131, 131) 77%);
+  height: 50px;
+}
+
+.mod-table td:first-child {
+  background-color: #eceeef;
+}
+
+.mod-table .day {
+  width: 24px;
+}
+
+.mod-table .morning-prayer {
+  width: 50px;
+}
+
+.mod-table .evening-prayer {
+  width: 50px;
+}
+
+.mod-table .scripture-study {
+  width: 50px;
+}
+
+.mod-table .service {
+  width: 50px;
+}
+
+.mod-table .daily-total {
+  width: 20px;
+}
+
+.mod-table .notes {
+  width: 50%;
+}
+
+.mod-table .notes textarea {
+  width: 100%;
+  resize: none;
+  display: none;
+}
+.mod-table .notes p {
+  text-align: left;
+  padding: 5px;
+}
+.mod-table td i.checked {
+  display: inline-block;
+  background: transparent url(../images/check_mark.png) no-repeat scroll 0 0;
+  height: 32px;
+  width: 30px;
+  vertical-align: middle;
+  margin: 5px 0 0 0;
+}

@@ -1,0 +1,39 @@
+<header>
+  <h1>PS2</h1>
+</header>
+
+<section id="bd" data-role="content" data-user='<%= @user.id %>'>
+  <table class="mod mod-table">
+    <thead>
+    <tr>
+      <td colspan="7"><h2>September</h2></td>
+    </tr>
+    <tr>
+      <th class="day"><h3>Day</h3></th>
+      <th class="morning-prayer"><h3>Morning Prayer</h3></th>
+      <th class="evening-prayer"><h3>Evening Prayer</h3></th>
+      <th class="scripture-study"><h3>Scripture Study</h3></th>
+      <th class="service"><h3>Service Kindness</h3></th>
+      <th class="daily-total"><h3>Daily Total</h3></th>
+      <th class="notes"><h3>Notes</h3></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @days.each do |d| %>
+    <tr class="<%= d.id %>" data-date="<%= d.date %>" data-recorded="<%= d.read.to_s %>">
+      <td><%= d.date.strftime('%e') %></td>
+      <td class="task" data-task="morning_prayer"><i class="<%= convert_to_check(d.morning_prayer) %>"></i></td>
+      <td class="task" data-task="evening_prayer"><i class="<%= convert_to_check(d.evening_prayer) %>"></i></td>
+      <td class="task" data-task="scripture_study"><i class="<%= convert_to_check(d.scripture_study) %>"></td>
+      <td class="task" data-task="service"><i class="<%= convert_to_check(d.service) %>"></i></td>
+      <td class="total"><%= d.total.html_safe %></td>
+      <td class="notes"><p><%= d.notes %></p><textarea><%= d.notes %></textarea></td>
+    </tr>
+    <% end %>
+    
+    </tbody>
+    <tfoot></tfoot>
+  </table>
+
+
+</section>

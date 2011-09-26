@@ -1,17 +1,152 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Auth Example</title>
+  <title>PS2 Mobile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.css" />
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
+  <script type="text/javascript" src="http://cubiq.org/dropbox/iscroll4/src/iscroll.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.0b2/jquery.mobile-1.0b2.min.js"></script>
+  <script type="text/javascript">
+
+    var myScroll;
+    function loaded() {
+
+        var day = jQuery('#days-wrapper li');
+        var dayCount = day.length;
+        var dayWidth = day[0].offsetWidth;
+        width = dayWidth*dayCount;
+        jQuery('#days-wrapper').css('width',width);
+        myScroll = new iScroll('days',{vScroll: false, hScrollbar: false},100);
+        myScroll = new iScroll('tasks-wrapper',{},100);
+        width = width - document.width;
+        jQuery('#days-wrapper').css('-webkit-transform', 'translate3d(-'+width+'px, 0px, 0px)');
+        jQuery('body').animate({'opacity':'100'}, 500);
+    }
+
+    document.addEventListener('touchstart', function (e) { e.preventDefault(); window.scrollTo(0, 1);}, false);
+
+    document.addEventListener('DOMContentLoaded', loaded, false);
+
+    function hideURLbar(){
+        if (window.pageYOffset < 1) {
+            window.scrollTo(0, 1);
+        }
+    }
+
+        $(document).ready(function(){
+
+        function addTask(_this){
+          if(!_this.hasClass('future')){
+            _this.siblings().removeClass('selected');
+            _this.addClass('selected');
+
+            var date = _this.find('.date').attr('id');
+            $.ajax({
+              type: 'get',
+              url: '/check_ins/get_checkin.json',
+              data: 'date='+date,
+              success: function(data){
+                var day = data[0];
+                if(data[0] == undefined){
+                  $('.task i').removeClass('checked');
+                }
+                else {
+                  console.log($('#tasks').attr('user'));
+
+                  $('#form-wrapper').html('');
+                  $('.task i').removeClass('checked');
+                  if(day.morning_prayer)
+                  $('#morning_prayer i').addClass('checked');
+                  if(day.evening_prayer)
+                  $('#evening_prayer i').addClass('checked');
+                  if(day.scripture_study)
+                  $('#scripture_study i').addClass('checked');
+                  if(day.service)
+                    $('#service i').addClass('checked');
+                }
+              },
+              dataType: 'json'
+            });
+
+
+    //            $('#days-wrapper').css('-webkit-transform', 'translate3d(-'+width+'px, 0px, 0px)');
+    //            console.log($(this).siblings());
+          }
+
+        }
+        // Select Day
+        $('.day').tap(function(){
+          addTask($(this));
+        });
+
+        $('.task i').tap(function(){
+          $(this).toggleClass('checked');
+
+          var tasksChecked = $('.checked').length;
+          $('.day.selected .day-total').text(tasksChecked);
+          $('.day.selected .day-unrecorded').removeClass();
+
+          var selected = $('.day.selected'),
+
+            id = selected.attr('id'),
+            date = selected.find('.date').attr('id'),
+            total = tasksChecked,
+            user_id = $('#tasks').attr('user'),
+            task = $(this).parent('.task').attr('id'),
+            checked = false;
+          if($(this).hasClass('checked')){
+            var checked = true;
+          }
+
+          if($('.selected').hasClass('un-recorded')){
+            $('.selected').removeClass('un-recorded');
+            $('.selected').addClass('recorded');
+            var url = '/check_ins',
+                data = "{\"date\":\""+date+"\",\""+task+"\":true,\"notes\":\"\",\"read\":true,\"total\":\""+total+"\",\"user_id\":"+user_id+"}",
+                type = 'POST';
+          }
+          else {
+            var url = '/check_ins/'+id,
+                data = '{"date":"'+date+'","id":"'+id+'","'+task+'":'+checked+',"notes":"","total":"'+total+'","user_id":"'+user_id+'"}',
+                type = 'PUT';
+          }
+
+
+
+          var token = $('meta[name="csrf-token"]').attr('content');
+          $.ajax({
+            url: url,
+            dataType: "json",
+            type: type,
+            processData: false,
+            contentType: "application/json",
+            data: data,
+            beforeSend: function(xhr)
+            {
+              xhr.setRequestHeader("X-CSRF-Token", token);
+            },
+            success: function(data){
+              $('.selected').attr('id',data.id);
+            }
+          });
+        });
+        addTask($('.selected'));
+        hideURLbar();
+        loaded();
+
+    });
+    </script>
   <%= csrf_meta_tags %>
+
 </head>
 <body class="<%= params[:controller] %>">
-  <div id="container">
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <% end %>
+  <header id="header" data-role="header">
+    <a href="http://tyler.local:3000/logout" data-ajax="false">Log Out</a>
+  </header>
     <%= yield %>
-  </div>
+
 </body>
 </html>
