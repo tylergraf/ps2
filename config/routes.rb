@@ -5,14 +5,19 @@ Auth::Application.routes.draw do
   get "check_ins/get_checkin"
   get "check_ins/hidden_form"
 
-  resources :check_ins
-  resources :public
-
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
-  root :to => "public#month"
+
+  root :to => "public#index"
   resources :users
   resources :sessions
+  resources :check_ins
+  resources :public
+  resources :password_reset
   get "secret" => "secret#index"
+
+  get "month" => "public#index", :as => "month"
+  match "/month/:id" => "public#show"
+
 end

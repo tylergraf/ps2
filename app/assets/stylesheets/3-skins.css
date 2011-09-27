@@ -20,24 +20,8 @@
 .mod-skin-base {
 }
 
-.mod-signup {
-  background-color: #ebf5ff;
-  box-shadow: 0 1px 1px #ccc;
-  -moz-box-shadow: 0 1px 2px #ccc;
-  -webkit-box-shadow: 0 1px 2px #ccc;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-}
 
-.mod-signup .mod-header h4 {
-  display: block;
-  text-indent: -9999px;
-  margin-bottom: 0;
-  margin-top: 5px;
-  width: 257px;
-  height: 40px;
-  background: url(images/_email-signup-header.png) no-repeat 0 0;
-}
+
 
 .mod-signup form {
   position: relative;
@@ -367,7 +351,7 @@
 
 .mod-table tr {
   background: #f7f7f7;
-  height: 30px;
+  height: 40px;
 }
 
 .mod-table {
@@ -443,14 +427,20 @@ thead td h2 {
   width: 50%;
 }
 
+.mod-table .notes {
+  padding: 5px;
+}
 .mod-table .notes textarea {
   width: 100%;
   resize: none;
   display: none;
+  line-height: 1.4em;
+  height: 100%;
+  background: transparent;
+  border: none;
 }
 .mod-table .notes p {
   text-align: left;
-  padding: 5px;
 }
 .mod-table td i.checked {
   display: inline-block;
@@ -460,3 +450,10 @@ thead td h2 {
   vertical-align: middle;
   margin: 5px 0 0 0;
 }
+
+input {
+  display: block;
+  width: 100%;
+}
+
+

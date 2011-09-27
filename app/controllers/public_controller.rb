@@ -2,14 +2,13 @@ class PublicController < ApplicationController
   before_filter 'authenticate_user!'
 
   def index
-    render :layout => 'application'
-    @days = CheckIn.get_past_check_ins(current_user.id, 8)
+    @days = CheckIn.get_month_checkins(current_user.id)
     @check_in = CheckIn.new
+    @user = current_user
   end
 
-  def month
-
-    @days = CheckIn.get_month_checkins(current_user.id, Date.current.mon)
+  def show
+    @days = CheckIn.get_month_checkins(current_user.id,params[:id].to_i)
     @check_in = CheckIn.new
     @user = current_user
   end
@@ -20,5 +19,7 @@ class PublicController < ApplicationController
     @check_in = CheckIn.new
 
   end
+  def homepage
 
+  end
 end

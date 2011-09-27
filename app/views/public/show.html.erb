@@ -4,10 +4,10 @@
     <thead>
     <tr>
       <td colspan="7">
-        <span class="unit size1of5"><a href="<%= get_prev_month_url() %>">Prev</a></span>
+        <span class="unit size1of5"><a href="<%= get_prev_month_url(params[:id].to_i) %>">Prev</a></span>
 
-        <div class="unit size3of5"><h2 ><%= get_month_name() %></h2></div>
-        <span class="unit size1of5"><a href="<%= get_next_month_url() %>">Next</a></span>
+        <div class="unit size3of5"><h2 ><%= get_month_name(params[:id].to_i) %></h2></div>
+        <span class="unit size1of5"><a href="<%= get_next_month_url(params[:id].to_i) %>">Next</a></span>
       </td>
     </tr>
     <tr>

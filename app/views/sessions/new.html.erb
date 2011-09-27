@@ -1,21 +1,30 @@
-<header id="header">
-  <div class="page">
-    <h1>ps2</h1>
-  </div>
-</header>
-
-
 <div class="page page-login">
-<h2>Log in</h2>
-  <%= form_tag sessions_path do %>
-    <div class="field">
-      <%= label_tag :email %>
-      <%= text_field_tag :email, params[:email] %>
+  <div class="mod mod-login unit size1of3">
+    <div class="mod-header">
+      <h2>Log in</h2>
     </div>
-    <div class="field">
-      <%= label_tag :password %>
-      <%= password_field_tag :password %>
-    </div>
-    <div class="actions"><%= submit_tag "Log in" %></div>
-  <% end %>
+    <div class="mod-body">
+      <div class="error-message">
+        <h3>Login Failed</h3>
+        <ul>
+        <% flash.each do |name, msg|  %>
+          <li>
+          <%= msg %>
+          </li>
+        <% end  %>
+        </ul>
+      </div>
+      <%= form_tag sessions_path do %>
+          <%= label_tag :email %>
+          <%= text_field_tag :email, params[:email] %>
+          <%= label_tag :password %>
+          <%= password_field_tag :password %>
+      </div>
+      <div class="mod-footer">
+        <%= submit_tag "Log in" %>
+        <%= link_to "Forgot password?", new_password_reset_path %>
+      </div>
+    <% end %>
+  </div>
+  </div>
 </div>

@@ -7,7 +7,7 @@ class CheckIn < ActiveRecord::Base
     return date_obj.reverse
   end
 
-  def self.get_month_checkins(user, monthnum)
+  def self.get_month_checkins(user, monthnum = Date.current.mon)
 
     ###uses monthnum to get number of days in month###
     resolution = (Date.new(Time.now.year,12,31).to_date<<(12-monthnum)).day
@@ -50,4 +50,6 @@ class CheckIn < ActiveRecord::Base
     check_in_obj_
 
   end
+
+
 end
