@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110927051109) do
+ActiveRecord::Schema.define(:version => 20110928141823) do
 
   create_table "check_ins", :force => true do |t|
     t.integer  "user_id"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(:version => 20110927051109) do
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.string   "auth_token"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
 end
