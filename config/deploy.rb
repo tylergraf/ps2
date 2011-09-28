@@ -14,7 +14,6 @@ set :branch, 'master'
 set :git_shallow_clone, 1
 set :scm_verbose, true
 
-
 # roles (servers)
 role :web, domain
 role :app, domain
