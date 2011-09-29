@@ -1,8 +1,8 @@
-set :user, 'tylergraf'  # Your dreamhost account's username
+set :user, 'solenoled'  # Your dreamhost account's username
 set :domain, 'tylergraf.com'  # Dreamhost servername where your account is located
 set :project, 'ps2'  # Your application as its called in the repository
 set :application, 'ps2.tylergraf.com'  # Your app's location (domain or sub-domain name as setup in panel)
-set :applicationdir, "/home/#{user}/#{application}"  # The standard Dreamhost setup
+set :applicationdir, "/home/tylergraf/#{application}"  # The standard Dreamhost setup
 
 # version control config
 set :scm, 'git'
