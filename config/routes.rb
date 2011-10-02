@@ -1,4 +1,6 @@
 Auth::Application.routes.draw do
+  resources :tasks
+
   get "public/index"
   get "public/mobile"
   get "public/month"

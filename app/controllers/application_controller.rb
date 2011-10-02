@@ -1,8 +1,23 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  #force_ssl
+  force_ssl
   private
   #has_mobile_fu
+
+  def do_login_stuff(email,password)
+    do_login(email,password)
+  end
+
+  def do_login(email,password)
+    user = User.find_by_email(email)
+    if user && user.authenticate(password)
+      session[:user_id] = user.id
+      redirect_to root_url, :notice => "Logged in!"
+    else
+      flash.now.alert = "Invalid email or password"
+      render "sessions/new"
+    end
+  end
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]

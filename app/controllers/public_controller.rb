@@ -2,7 +2,7 @@ class PublicController < ApplicationController
   before_filter 'authenticate_user!'
 
   def index
-    @days = CheckIn.get_month_checkins(current_user.id)
+    @days = CheckIn.get_month_checkins(current_user.id,1)
     @check_in = CheckIn.new
     @user = current_user
   end

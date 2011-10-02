@@ -37,7 +37,8 @@ class CheckInsController < ApplicationController
   # GET /check_ins/new.json
   def new
     @check_in = CheckIn.new
-
+    @task = Task.find_all_by_user_id(current_user.id)
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @check_in }

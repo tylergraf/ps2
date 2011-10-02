@@ -11,32 +11,41 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110928141823) do
+ActiveRecord::Schema.define(:version => 20110930031000) do
 
   create_table "check_ins", :force => true do |t|
     t.integer  "user_id"
-    t.boolean  "morning_prayer"
-    t.boolean  "evening_prayer"
-    t.boolean  "scripture_study"
-    t.boolean  "service"
     t.string   "notes"
-    t.boolean  "read"
+    t.boolean  "done"
     t.date     "date"
     t.string   "total"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", :force => true do |t|
-    t.string   "email"
-    t.string   "password_digest"
+  create_table "check_ins_tasks", :id => false, :force => true do |t|
+    t.integer "task_id",     :null => false
+    t.integer "check_in_id", :null => false
+  end
+
+  create_table "tasks", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "task"
+    t.string   "task_frequency"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_reset_token"
-    t.datetime "password_reset_sent_at"
-    t.string   "auth_token"
+  end
+
+  create_table "users", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "password_reset_token"
+    t.string   "auth_token"
+    t.datetime "password_reset_sent_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
