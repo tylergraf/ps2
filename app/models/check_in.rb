@@ -9,11 +9,10 @@ class CheckIn < ActiveRecord::Base
     return date_obj.reverse
   end
 
-  def self.get_month_checkins(user, monthnum = Date.current.mon)
+  def self.get_month_checkins(user, monthnum = Date.current.mon - 2)
 
     ###uses monthnum to get number of days in month###
-    #resolution = (Date.new(Time.now.year,12,31).to_date<<(12-monthnum)).day
-    resolution = 1
+    resolution = (Date.new(Time.now.year,12,31).to_date<<(12-monthnum)).day
 
     ###uses monthnum to get first day of the month###
     start_date = (Date.new(Time.now.year,12,31).to_date<<(12-monthnum)).at_beginning_of_month
@@ -25,41 +24,55 @@ class CheckIn < ActiveRecord::Base
 
 
   def self.create_checkin_obj(user,resolution, start_date)
-    task_total = Task.find_all_by_user_id(user).length
-    @check_in = CheckIn.join(:)
-    @task = Task.find_all_by_user_id(user)
+    tasks = Task.find_all_by_user_id(user)
     check_in_obj = []
-    check_in_obj_ = []
-    ticker = -1
+    user_checkins = self.find_by_sql("select c.id, c.date, t.task, c.done, t.task_frequency from check_ins c join check_ins_tasks ct on ct.check_in_id = c.id join tasks t on t.id = ct.task_id where c.user_id = "+user.to_s)
+    resolution.times do |r|
+      check_in_obj << self.new(:date => start_date.strftime("%Y-%m-%d"),:done => false)
+      tasks.length.times do |t|
+        check_in_obj[r]['checked_'+t.to_s] = false
+      end
+      start_date +=1.day
+    end
+    check_in_obj.length.times do |c|
+      user_checkins.length.times do |u|
+        if (user_checkins[u].date.to_s == check_in_obj[c].date.to_s)
+          tasks.length.times do |t|
+            if (user_checkins[u].task.to_s == tasks[t].task.to_s)
+              if (user_checkins[u].done == true)
+                check_in_obj[c]['checkin_'+t.to_s] = user_checkins[u].id
+                check_in_obj[c]['checked_'+t.to_s] = true
+              else
+                check_in_obj[c]['checked_'+t.to_s] = false
+                check_in_obj[c]['checkin_'+t.to_s] = ''
+              end
+              check_in_obj[c]['recorded_'+t.to_s] = true
 
-    user_checkins = self.find_all_by_user_id(user)
+            elsif (user_checkins[u].task.to_s != tasks[t].task.to_s)
+                check_in_obj[c]['checked_'+t.to_s] = false
+                check_in_obj[c]['recorded_'+t.to_s] = true
 
-    ###goes through initial object and adds an object for each checkin already in db
-    resolution.times do |i|
-      check_in_temp = user_checkins[i]
-      if check_in_temp
-        check_in_obj << check_in_temp
-      else
-        check_in_obj << self.new
+            #elsif (user_checkins[u].task.to_s != tasks[t].task.to_s && user_checkins[u].done == true)
+            #   if (user_checkins[u].done == true)
+            #    check_in_obj[c]['checkin_'+t.to_s] = user_checkins[u].id
+            #  else
+            #    check_in_obj[c]['checkin_'+t.to_s] = ''
+            #  end
+            #    check_in_obj[c]['checked_'+t.to_s] = false
+            #    #check_in_obj[c]['checkin_'+t.to_s] = user_checkins[u].id
+            #    check_in_obj[c]['recorded_'+t.to_s] = true
+
+
+            elsif (user_checkins[u].task.to_s != tasks[t].task.to_s && user_checkins[u].done == true)
+              check_in_obj[c]['checked_'+t.to_s] = false
+              check_in_obj[c]['checkin_'+t.to_s] = ''
+              check_in_obj[c]['recorded_'+t.to_s] = false
+            end
+          end
+        end
       end
     end
-
-    ###goes through array of empty or not objects and adds
-    resolution.times do |f|
-      resolution.times do |a|
-        if (check_in_obj[a].date.to_s == start_date.strftime("%Y-%m-%d"))
-          check_in_obj_ << check_in_obj[a]
-          ticker += 1
-        end
-        if a == resolution - 1 && check_in_obj[a].date.to_s != start_date.strftime("%Y-%m-%d") && ticker != f
-            check_in_obj_ << self.new(:date => start_date.strftime("%Y-%m-%d"), :total => '&ndash;')
-            ticker +=1
-        end
-      end
-      start_date += 1.day
-    end
-    check_in_obj_
-    return @task
+    return check_in_obj
   end
 
 

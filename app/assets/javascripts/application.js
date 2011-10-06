@@ -15,7 +15,7 @@ function update_total(_this) {
 
 function update_recorded(_this, data) {
   _this.attr('data-recorded', 'true');
-  _this.attr('class', data.id);
+  _this.attr('data-checkin-id', data.id);
 
 }
 function send_data(_this,url, type, data, token){
@@ -23,14 +23,14 @@ function send_data(_this,url, type, data, token){
     url: url,
     dataType: "json",
     type: type,
-    processData: false,
+    processData: true,
     contentType: "application/json",
     data: data,
     beforeSend: function(xhr) {
       xhr.setRequestHeader("X-CSRF-Token", token);
     },
     success: function(data) {
-      update_recorded(_this.parent(), data);
+      update_recorded(_this, data);
     }
   });
 
@@ -40,7 +40,7 @@ function prepare_notes_data(_this) {
   var url = '/check_ins',
       id = _this.parent().attr('class'),
       date = _this.parent().attr('data-date'),
-      task = _this.attr('data-task'),
+      task = _this.attr('data-task-id'),
       total = _this.siblings('.total').text(),
       notes = _this.parent().find('.notes p').text(),
       user_id = jQuery('[data-user]').attr('data-user');
@@ -62,25 +62,28 @@ function prepare_notes_data(_this) {
 
 }
 function prepare_task_data(_this) {
-  var url = '/check_ins',
-      id = _this.parent().attr('class'),
+      if (_this.find('i').hasClass('checked'))
+        checked = true;
+      else
+        checked = false;
+
+      var url = '/check_ins',
+      id = _this.attr('data-checkin-id'),
       date = _this.parent().attr('data-date'),
-      task = _this.attr('data-task'),
+      task_id = _this.attr('data-task-id'),
       total = _this.siblings('.total').text(),
       notes = _this.parent().find('.notes p').text(),
       user_id = jQuery('[data-user]').attr('data-user');
-      data = "{\"date\":\"" + date + "\",\"" + task + "\":true,\"notes\":\""+notes+"\",\"read\":true,\"total\":\"" + total + "\",\"user_id\":" + user_id + "}",
-      type = 'POST',
       token = $('meta[name="csrf-token"]').attr('content');
+      data = '{"check_in":{"date":"' + date + '","done":'+checked+',' + '"task_ids":"'+ task_id +'","user_id":"' + user_id + '"}}',
+      type = 'POST';
 
-  if (_this.find('i').hasClass('checked'))
-    checked = true;
-  else
-    checked = false;
 
-  if (_this.parent('tr').attr('data-recorded'))
+
+  if (_this.attr('data-recorded') == 'true')
     url = '/check_ins/' + id,
-            data = '{"date":"' + date + '","id":"' + id + '","' + task + '":' + checked + ',"notes":"'+notes+'","total":"' + total + '","user_id":"' + user_id + '"}',
+
+            data = '{"date":"' + date + '","done":'+checked+',' + '"task_ids":"'+ task_id +'","id":"' + id + '"}',
             type = 'PUT';
 
   send_data(_this,url, type, data, token)

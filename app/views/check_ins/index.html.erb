@@ -2,13 +2,7 @@
 
 <table>
   <tr>
-    <th>Morning prayer</th>
-    <th>Evening prayer</th>
-    <th>Scripture study</th>
-    <th>Service</th>
-    <th>Notes</th>
     <th>Date</th>
-    <th>Read</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,13 +10,7 @@
 
 <% @check_ins.each do |check_in| %>
   <tr>
-    <td><%= check_in.morning_prayer %></td>
-    <td><%= check_in.evening_prayer %></td>
-    <td><%= check_in.scripture_study %></td>
-    <td><%= check_in.service %></td>
-    <td><%= check_in.notes %></td>
     <td><%= check_in.date %></td>
-    <td><%= check_in.read %></td>
     <td><%= link_to 'Show', check_in %></td>
     <td><%= link_to 'Edit', edit_check_in_path(check_in) %></td>
     <td><%= link_to 'Destroy', check_in, confirm: 'Are you sure?', method: :delete %></td>
