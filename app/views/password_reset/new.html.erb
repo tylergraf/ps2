@@ -1,10 +1,17 @@
-<div class="page page-passwordreset">
-  <%= form_tag :controller => "password_reset", :method => :post do %>
+<div class="page-wrapper">
+  <div class="unit size1of3">
+  <%= form_tag :controller => "password_reset", :method => :post, :class => 'form' do %>
   <div class="field">
-    <%= label_tag :email %>
-    <%= text_field_tag :email, params[:email] %>
+    <div class="field-label">
+      <%= label_tag :email %>
+    </div>
+    <div class="field-input field-input-skin-1">
+      <%= text_field_tag :email, params[:email] %>
+    </div>
   </div>
-  <div class="actions"><%= submit_tag "Reset Password" %></div>
+  <div class="form-actions">
+    <%= submit_tag "Reset Password",:class => 'button button-skin-primary' %>
+  </div>
 <% end %>
-
+</div>
 </div>

@@ -1,4 +1,6 @@
 Auth::Application.routes.draw do
+  resources :notes
+
   resources :tasks
 
   get "public/index"

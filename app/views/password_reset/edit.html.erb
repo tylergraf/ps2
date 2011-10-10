@@ -1,4 +1,4 @@
-<div class="page page-passwordreset">
+<div class="page-wrapper">
 <%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
   <% if @user.errors.any? %>
     <div class="error_messages">
@@ -11,14 +11,24 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+    <div class="field-label">
+      <%= f.label :password %>
+    </div>
+    <div class="field-input field-input-skin1">
+      <%= f.password_field :password %>
+    </div>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+    <div class="field-label">
+      <%= f.label :password_confirmation %>
+    </div>
+    <div class="field-input field-input-skin1">
+      <%= f.password_field :password_confirmation %>
+    </div>
   </div>
-  <div class="actions"><%= f.submit "Update Password" %></div>
+  <div class="form-actions">
+    <%= f.submit "Update Password", :class => 'button button-skin-primary' %>
+  </div>
 <% end %>
 
 </div>

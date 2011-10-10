@@ -1,4 +1,4 @@
-<div class="page sign-up">
+<div class="page-wrapper">
   <div class="mod mod-signup unit size1of3">
 
     <div class="mod-header">
@@ -7,30 +7,60 @@
 
     <div class="mod-body">
       <%= form_for @user do |f| %>
-        <% if @user.errors.any? %>
-          <div class="error-message">
-            <h3>Form is invalid</h3>
-            <ul>
-              <% for message in @user.errors.full_messages %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-          <%= f.label :email %>
-          <%= f.text_field :email, {:size => "0"}%>
-          <%= f.label :first_name %>
-          <%= f.text_field :first_name, {:size => "0"}%>
-          <%= f.label :last_name %>
-          <%= f.text_field :last_name, {:size => "0"}%>
-          <%= f.label :password %>
-          <%= f.password_field :password, {:size => "0"} %>
-          <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation, {:size => "0"} %>
-        </div>
-        <div class="mod-footer">
-          <%= f.submit %>
+      <% if @user.errors.any? %>
+        <div class="error-message">
+          <h3>Form is invalid</h3>
+          <ul>
+            <% for message in @user.errors.full_messages %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
         </div>
       <% end %>
+      <div class="field">
+        <div class="field-label">
+          <%= f.label :email %>
+        </div>
+        <div class="field-input field-input-skin-1">
+          <%= f.text_field :email, {:size => "0"}%>
+        </div>
       </div>
+      <div class="field unit size1of2">
+        <div class="field-label">
+          <%= f.label :first_name %>
+        </div>
+        <div class="field-input field-input-skin-1 xx-helper-mrm">
+        <%= f.text_field :first_name, {:size => "0"}%>
+        </div>
+      </div>
+      <div class="field unit size1of2">
+        <div class="field-label">
+        <%= f.label :last_name %>
+        </div>
+        <div class="field-input field-input-skin-1">
+          <%= f.text_field :last_name, {:size => "0"}%>
+        </div>
+      </div>
+      <div class="field unit size1of2">
+        <div class="field-label">
+        <%= f.label :password %>
+        </div>
+        <div class="field-input field-input-skin-1 xx-helper-mrm">
+          <%= f.password_field :password, {:size => "0"} %>
+        </div>
+      </div>
+      <div class="field unit size1of2">
+        <div class="field-label">
+          <%= f.label :password_confirmation, "Confirm Password" %>
+        </div>
+        <div class="field-input field-input-skin-1">
+          <%= f.password_field :password_confirmation, {:size => "0"} %>
+        </div>
+      </div>
+      <div class="form-actions">
+        <%= f.submit :class => 'button button-skin-primary' %>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>

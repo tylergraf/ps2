@@ -1,44 +1,51 @@
-<div class="page page-month">
+<div class="page-wrapper">
+  <% if @tasks.length != 0 %>
+
+  <%= link_to 'Manage Tasks', :controller => 'tasks' %>
 <section id="bd" data-role="content" data-user='<%= @user.id %>'>
   <table class="mod mod-table">
     <thead>
     <tr>
-      <td colspan="7"><h2>September</h2></td>
+      <td colspan="<%= @tasks.length + 2 %>">
+        <span class="unit size1of5"><a href="<%= get_prev_month_url() %>">Prev</a></span>
+
+        <div class="unit size3of5"><h2 ><%= get_month_name() %></h2></div>
+        <span class="unit size1of5"><a href="<%= get_next_month_url() %>">Next</a></span>
+      </td>
     </tr>
     <tr>
       <th class="day"><h3>Day</h3></th>
       <% @tasks.each do |t| %>
-      <th class="" data-task-id=""><h3><%= t.task %></h3></th>
+      <th class="th-skin-task"><h3><%= t.task %></h3></th>
       <% end %>
-      <th class="notes"><h3>Notes</h3></th>
+      <th class="th-skin-notes"><h3>Notes</h3></th>
     </tr>
     </thead>
     <tbody>
     <% @days.each do |d| %>
-      <tr class="" data-date="<%= d.date %>">
+      <tr class="<% if(d.date.to_s == Time.now.strftime("%Y-%m-%d"))%>today<% end %>" data-date="<%= d.date %>">
         <td><%= d.date.strftime('%e') %></td>
         <% i = 0 %>
         <% @tasks.each do |t| %>
         <td data-checkin-id="<%= d['checkin_'+i.to_s] %>" data-recorded="<%= d['recorded_'+i.to_s] %>" data-task-id="<%= t.id %>" class="task"><i class="<%= convert_to_check(d['checked_'+i.to_s]) %>"></i></td>
         <% i += 1 %>
         <% end %>
-        <td><%= d.notes %></td>
+        <td class="notes" data-note-id="<%= d.note_id %>" data-note-recorded="<%= d.note_recorded %>">
+          <p><%= d.notes %></p>
+          <textarea><%= d.notes %></textarea>
+          <div class="mod-footer">
+              <a href="#" class="button">Submit</a>
+              <a href="#" class="cancel">Cancel</a>
+            </div>
+
+        </td>
       </tr>
     <% end %>
-      <!--<td></td>-->
-      <!--<td class="task" data-task="morning_prayer"><i class=""></i></td>-->
-      <!--<td class="task" data-task="evening_prayer"><i class=""></i></td>-->
-      <!--<td class="task" data-task="scripture_study"><i class=""></td>-->
-      <!--<td class="task" data-task="service"><i class=""></i></td>-->
-      <!--<td class="total"></td>-->
-      <!--<td class="notes"><p></p><textarea></textarea></td>-->
-    <script type="text/javascript">
-[{"created_at":"2011-09-30T06:17:29Z","date":"2011-09-29","done":false,"id":1,"notes":null,"total":null,"updated_at":"2011-09-30T06:17:29Z","user_id":1},{"created_at":"2011-09-30T06:25:50Z","date":"2011-08-08","done":false,"id":2,"notes":null,"total":null,"updated_at":"2011-09-30T06:25:50Z","user_id":1},{"created_at":"2011-10-01T00:30:29Z","date":"2011-08-06","done":false,"id":3,"notes":null,"total":null,"updated_at":"2011-10-01T00:30:29Z","user_id":1},{"created_at":"2011-10-03T02:41:03Z","date":"2011-10-02","done":false,"id":4,"notes":null,"total":null,"updated_at":"2011-10-03T02:41:03Z","user_id":1},{"created_at":"2011-10-03T02:41:32Z","date":"2011-10-01","done":false,"id":5,"notes":null,"total":null,"updated_at":"2011-10-03T02:41:32Z","user_id":1},{"created_at":"2011-10-03T02:41:32Z","date":"2011-08-01","done":false,"id":6,"notes":null,"total":null,"updated_at":"2011-10-03T02:41:32Z","user_id":1},{"created_at":"2011-10-06T00:39:29Z","date":"2011-08-01","done":true,"id":9,"notes":null,"total":null,"updated_at":"2011-10-06T00:39:29Z","user_id":1},{"created_at":"2011-10-06T00:57:04Z","date":null,"done":null,"id":10,"notes":"","total":"","updated_at":"2011-10-06T00:57:04Z","user_id":1},{"created_at":"2011-10-06T00:57:15Z","date":null,"done":null,"id":11,"notes":"","total":"","updated_at":"2011-10-06T00:57:15Z","user_id":1}]
-</script>
     </tbody>
     <tfoot></tfoot>
   </table>
-
-
 </section>
+     <% else %>
+    <%= link_to 'Create a Task', :controller => 'tasks' %>
+  <% end %>
 </div>

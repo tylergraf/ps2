@@ -9,7 +9,7 @@ class CheckIn < ActiveRecord::Base
     return date_obj.reverse
   end
 
-  def self.get_month_checkins(user, monthnum = Date.current.mon - 2)
+  def self.get_month_checkins(user, monthnum = Date.current.mon)
 
     ###uses monthnum to get number of days in month###
     resolution = (Date.new(Time.now.year,12,31).to_date<<(12-monthnum)).day
@@ -24,6 +24,7 @@ class CheckIn < ActiveRecord::Base
 
 
   def self.create_checkin_obj(user,resolution, start_date)
+    notes = Note.find_all_by_user_id(user)
     tasks = Task.find_all_by_user_id(user)
     check_in_obj = []
     user_checkins = self.find_by_sql("select c.id, c.date, t.task, c.done, t.task_frequency from check_ins c join check_ins_tasks ct on ct.check_in_id = c.id join tasks t on t.id = ct.task_id where c.user_id = "+user.to_s)
@@ -32,6 +33,9 @@ class CheckIn < ActiveRecord::Base
       tasks.length.times do |t|
         check_in_obj[r]['checked_'+t.to_s] = false
       end
+      check_in_obj[r]['notes'] = ''
+      check_in_obj[r]['note_id'] = ''
+      check_in_obj[r]['note_recorded'] = false
       start_date +=1.day
     end
     check_in_obj.length.times do |c|
@@ -44,30 +48,17 @@ class CheckIn < ActiveRecord::Base
                 check_in_obj[c]['checked_'+t.to_s] = true
               else
                 check_in_obj[c]['checked_'+t.to_s] = false
-                check_in_obj[c]['checkin_'+t.to_s] = ''
+                check_in_obj[c]['checkin_'+t.to_s] = user_checkins[u].id
               end
               check_in_obj[c]['recorded_'+t.to_s] = true
-
-            elsif (user_checkins[u].task.to_s != tasks[t].task.to_s)
-                check_in_obj[c]['checked_'+t.to_s] = false
-                check_in_obj[c]['recorded_'+t.to_s] = true
-
-            #elsif (user_checkins[u].task.to_s != tasks[t].task.to_s && user_checkins[u].done == true)
-            #   if (user_checkins[u].done == true)
-            #    check_in_obj[c]['checkin_'+t.to_s] = user_checkins[u].id
-            #  else
-            #    check_in_obj[c]['checkin_'+t.to_s] = ''
-            #  end
-            #    check_in_obj[c]['checked_'+t.to_s] = false
-            #    #check_in_obj[c]['checkin_'+t.to_s] = user_checkins[u].id
-            #    check_in_obj[c]['recorded_'+t.to_s] = true
-
-
-            elsif (user_checkins[u].task.to_s != tasks[t].task.to_s && user_checkins[u].done == true)
-              check_in_obj[c]['checked_'+t.to_s] = false
-              check_in_obj[c]['checkin_'+t.to_s] = ''
-              check_in_obj[c]['recorded_'+t.to_s] = false
             end
+          end
+        end
+        notes.length.times do |n|
+          if (check_in_obj[c].date.to_s == notes[n].date.to_s)
+            check_in_obj[c]['notes'] = notes[n].notes
+            check_in_obj[c]['note_id'] = notes[n].id
+            check_in_obj[c]['note_recorded'] = true
           end
         end
       end

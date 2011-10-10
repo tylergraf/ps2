@@ -1,21 +1,16 @@
-<h1>Listing tasks</h1>
+<div class="page-wrapper">
+<h1>Tasks</h1>
+  <p><%= link_to 'New Task', new_task_path %></p>
+  <p><%= link_to 'Back', :controller => 'public' %></p>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<ul>
 <% @tasks.each do |task| %>
-  <tr>
-    <td><%= link_to 'Show', task %></td>
-    <td><%= link_to 'Edit', edit_task_path(task) %></td>
-    <td><%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+    <li>
+      <%= task.task %>
+      <%= link_to 'Edit', edit_task_path(task) %>
+      <%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %>
+    </li>
+
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Task', new_task_path %>
+</ul>
+</div>

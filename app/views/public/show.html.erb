@@ -1,9 +1,10 @@
-<div class="page page-month">
+<div class="page-wrapper">
+  <%= link_to 'Manage Tasks', :controller => 'tasks' %>
 <section id="bd" data-role="content" data-user='<%= @user.id %>'>
   <table class="mod mod-table">
     <thead>
     <tr>
-      <td colspan="7">
+      <td colspan="<%= @tasks.length + 2 %>">
         <span class="unit size1of5"><a href="<%= get_prev_month_url(params[:id].to_i) %>">Prev</a></span>
 
         <div class="unit size3of5"><h2 ><%= get_month_name(params[:id].to_i) %></h2></div>
@@ -12,27 +13,24 @@
     </tr>
     <tr>
       <th class="day"><h3>Day</h3></th>
-      <th class="morning-prayer"><h3>Morning Prayer</h3></th>
-      <th class="evening-prayer"><h3>Evening Prayer</h3></th>
-      <th class="scripture-study"><h3>Scripture Study</h3></th>
-      <th class="service"><h3>Service Kindness</h3></th>
-      <th class="daily-total"><h3>Daily Total</h3></th>
-      <th class="notes"><h3>Notes</h3></th>
+      <% @tasks.each do |t| %>
+      <th class="th-skin-task"><h3><%= t.task %></h3></th>
+      <% end %>
+      <th class="th-skin-notes"><h3>Notes</h3></th>
     </tr>
     </thead>
     <tbody>
     <% @days.each do |d| %>
-    <tr class="<%= d.id %>" data-date="<%= d.date %>" data-recorded="<%= d.read.to_s %>">
-      <td><%= d.date.strftime('%e') %></td>
-      <td class="task" data-task="morning_prayer"><i class="<%= convert_to_check(d.morning_prayer) %>"></i></td>
-      <td class="task" data-task="evening_prayer"><i class="<%= convert_to_check(d.evening_prayer) %>"></i></td>
-      <td class="task" data-task="scripture_study"><i class="<%= convert_to_check(d.scripture_study) %>"></td>
-      <td class="task" data-task="service"><i class="<%= convert_to_check(d.service) %>"></i></td>
-      <td class="total"><%= d.total.html_safe %></td>
-      <td class="notes"><p><%= d.notes %></p><textarea><%= d.notes %></textarea></td>
-    </tr>
+      <tr class="" data-date="<%= d.date %>">
+        <td><%= d.date.strftime('%e') %></td>
+        <% i = 0 %>
+        <% @tasks.each do |t| %>
+        <td data-checkin-id="<%= d['checkin_'+i.to_s] %>" data-recorded="<%= d['recorded_'+i.to_s] %>" data-task-id="<%= t.id %>" class="task"><i class="<%= convert_to_check(d['checked_'+i.to_s]) %>"></i></td>
+        <% i += 1 %>
+        <% end %>
+        <td><%= d.notes %></td>
+      </tr>
     <% end %>
-    
     </tbody>
     <tfoot></tfoot>
   </table>

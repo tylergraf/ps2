@@ -1,7 +1,7 @@
-<%= form_for @task do |f| %>
+<%= form_for @task, :html => {:class => 'form'} do |f| %>
   <% if @task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this check_in from being saved:</h2>
+    <div class="error-message">
+      <h3><%= pluralize(@task.errors.count, "error") %> prohibited this check_in from being saved:</h3>
 
       <ul>
       <% @task.errors.full_messages.each do |msg| %>
@@ -16,16 +16,26 @@
   <%=  f.hidden_field :user_id, :value => current_user.id %>
 
   <div class="field">
-    <%= f.label :task %><br />
-    <%= f.text_field :task %>
+    <div class="field-label">
+      <%= f.label :task, :class => 'field-label' %>
+    </div>
+    <div class="field-input field-input-skin-1">
+      <%= f.text_field :task %>
+    </div>
   </div>
   <div class="field">
-    <%= f.label :task_frequency, "Daily" %>
-    <%= f.radio_button :task_frequency, "daily" %>
-    <%= f.label :task_frequency, "Weekly" %>
-    <%= f.radio_button :task_frequency, "weekly" %>
+    <div class="unit size1of2">
+      <%= f.label :task_frequency, "Daily" %>
+        <%= f.radio_button :task_frequency, "daily" %>
+    </div>
+    <div class="unit size1of2">
+      <%= f.label :task_frequency, "Weekly" %>
+      <%= f.radio_button :task_frequency, "weekly" %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit :class => 'button button-skin-primary' %>
+    <%= link_to 'Cancel', tasks_path, :class => 'button' %>
+
   </div>
 <% end %>
