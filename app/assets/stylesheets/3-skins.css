@@ -28,14 +28,14 @@ body {}
 .tabset-skin-candeo .tabset-menu {margin-bottom:0;}
 .tabset-skin-candeo .tabset-menu-item {margin:0;list-style:none;}
 .tabset-skin-candeo .tabset-menu-item a { background: rgba(0,0,0,0.2); background-color: #333\9; padding: 10px; display: block; text-decoration: none; margin: 0 10px 0 0;}
-.tabset-skin-candeo .tabset-menu-item.ui-tabs-selected a {background: rgba(256,256,256,1) url(images/bg-body.png) repeat; text-decoration: none;}
+.tabset-skin-candeo .tabset-menu-item.ui-tabs-selected a {background: rgba(255,255,255,1) url(images/bg-body.png) repeat; text-decoration: none;}
 .tabset-skin-candeo .tabset-menu-item .candeo-tab-text {color:#fff;margin: 10px 0 10px 5px;}
 .tabset-skin-candeo .tabset-menu-item.ui-tabs-selected h3 {color:#408AA5;}
 
 .tabset-skin-sidebar .tabset-menu {margin-bottom:0;}
 .tabset-skin-sidebar .tabset-menu-item {margin:0;list-style:none;}
 .tabset-skin-sidebar .tabset-menu-item a { background: rgba(0,0,0,0.2); background-color: #333\9; padding: 10px; display: block; text-decoration: none; margin: 0 10px 0 0;}
-.tabset-skin-sidebar .tabset-menu-item.ui-tabs-selected a {background: rgba(256,256,256,1) url(images/bg-body.png) repeat; text-decoration: none;}
+.tabset-skin-sidebar .tabset-menu-item.ui-tabs-selected a {background: rgba(255,255,255,1) url(images/bg-body.png) repeat; text-decoration: none;}
 .tabset-skin-sidebar .tabset-menu-item .candeo-tab-text {color:#fff;margin: 10px 0 10px 5px;}
 .tabset-skin-sidebar .tabset-menu-item.ui-tabs-selected h3 {color:#408AA5;}
 
