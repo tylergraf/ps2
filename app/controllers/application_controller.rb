@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  force_ssl
+  #force_ssl
   private
   #has_mobile_fu
 
