@@ -1,7 +1,10 @@
 <div class="page-wrapper">
 <h1>Tasks</h1>
-  <p><%= link_to 'New Task', new_task_path %></p>
-  <p><%= link_to 'Back', :controller => 'public' %></p>
+  <p>
+    <%= link_to 'Create New Task', new_task_path, :class => 'button button-skin-primary'%>
+
+  </p>
+  <p><%= link_to 'Monthly Task List', :controller => 'public' %></p>
 
 <ul>
 <% @tasks.each do |task| %>
@@ -12,5 +15,7 @@
     </li>
 
 <% end %>
+
 </ul>
+
 </div>

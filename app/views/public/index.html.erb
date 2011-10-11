@@ -34,9 +34,9 @@
           <p><%= d.notes %></p>
           <textarea><%= d.notes %></textarea>
           <div class="mod-footer">
-              <a href="#" class="button">Submit</a>
-              <a href="#" class="cancel">Cancel</a>
-            </div>
+            <a href="#" class="button button-skin-primary">Submit</a>
+            <a href="#" class="cancel">Cancel</a>
+          </div>
 
         </td>
       </tr>
@@ -46,6 +46,46 @@
   </table>
 </section>
      <% else %>
-    <%= link_to 'Create a Task', :controller => 'tasks' %>
+<section data-user='<%= @user.id %>' class="no-tasks">
+  <h1 class="heading-ext-lowercase">Hey! Welcome!</h1>
+  <h2 class="heading-ext-lowercase">You don&#39;t have any daily tasks yet!</h2>
+
+  <p><img src="/images/task-example.jpg" alt=""></p>
+
+  <div class="unit size1of3">
+    <p></p>
+  </div>
+  <div class="unit size1of3">
+  <div class="mod mod-skin-create-tasks">
+    <div class="mod-header"><h3>Create Some Tasks</h3></div>
+    <div class="mod-body">
+      <p>Select from the tasks below:</p>
+
+      <form class="form">
+        <div class="field">
+          <input type="checkbox" value="Morning Prayer">
+          <label for="">Morning Prayer</label>
+        </div>
+        <div class="field">
+        <input type="checkbox" value="Scripture Study">
+        <label for="">Scripture Study</label>
+        </div>
+        <div class="field">
+          <input type="checkbox" value="Service">
+          <label for="">Service</label>
+       </div>
+        <div class="field">
+          <input type="checkbox" value="Evening Prayer">
+          <label for="">Evening Prayer</label>
+        </div>
+        <div class="form-actions">
+          <p>and/or</p>
+          <a class="button button-skin-primary" id="create-init-tasks">Create Your Own</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
+</section>
   <% end %>
 </div>

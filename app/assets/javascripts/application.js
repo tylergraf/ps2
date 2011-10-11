@@ -112,7 +112,22 @@ function create_textarea(_this){
   _this.find('textarea').focus();
   close_textarea(_this.find('textarea'));
 }
-
+function create_tasks(user_id, data, token){
+  $.ajax({
+      url: '/tasks',
+      dataType: "json",
+      type: 'post',
+      processData: false,
+      contentType: "application/json",
+      data: data,
+      beforeSend: function(xhr) {
+        xhr.setRequestHeader("X-CSRF-Token", token);
+      },
+      success: function(data) {
+        return data;
+      }
+    });
+}
 jQuery(document).ready(function() {
   jQuery('.task').click(function() {
     var check_obj = jQuery(this).find('i');
@@ -128,6 +143,22 @@ jQuery(document).ready(function() {
   });
   jQuery('.notes').click(function(){
     create_textarea(jQuery(this));
+
+  });
+  jQuery('#create-init-tasks').click(function(e){
+    e.preventDefault();
+    var tasks = jQuery('form').find(':checked'),
+        user_id = jQuery('[data-user]').attr('data-user'),
+        token = $('meta[name="csrf-token"]').attr('content');
+    tasks.each(function(index,item){
+      data = '{"task":{"task":"' + jQuery(item).val() + '","user_id":"' + user_id + '"}}';
+      create_tasks(user_id, data, token);
+    });
+    if(tasks.length == 0)
+      window.location = "/tasks/new";
+    else
+      window.location = "/tasks";
+
 
   });
 });

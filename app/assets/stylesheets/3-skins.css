@@ -100,15 +100,17 @@ body {}
 .button-ext-large-1 {padding: 20px;background: url(images/bg-button-lg.png) 0 0 repeat-x;color: rgba(0, 0, 0, 0.55);color: #697936;display: inline-block;text-shadow: 0 1px 0px rgba(255, 255, 255, 0.45);border: none;text-align: center;font: bold 22px/21px Arial, sans-serif;height: 20px;width:267px;border-radius: 5px 5px 5px 5px;}
 .button-ext-large-1:hover { background-position: 0 -87px !important; }
 
-.button-skin-primary {
-    border-color: #a0c230 #a0c230 #95b52d;
-    background-color: #aad033;
-    background-image: -webkit-gradient(linear, left top, left bottom, to(#c8df7c), from(#aad033));
-    background-image: -webkit-linear-gradient(top, #c8df7c, #aad033);
-    background-image: -moz-linear-gradient(top, #c8df7c, #aad033);
-    background-image: -o-linear-gradient(top, #c8df7c, #aad033);
-    background-image: -ms-linear-gradient(top, #c8df7c, #aad033);
-    background-image: linear-gradient(top, #c8df7c, #aad033);
+a.button-skin-primary,
+input.button-skin-primary,
+button.button-skin-primary {
+    border-color: #c63328 #c63328 #c63328;
+    background-color: #c63328;
+    background-image: -webkit-gradient(linear, left top, left bottom, to(#c6554c), from(#c63328));
+    background-image: -webkit-linear-gradient(top, #c6554c, #c63328);
+    background-image: -moz-linear-gradient(top, #c6554c, #c63328);
+    background-image: -o-linear-gradient(top, #c6554c, #c63328);
+    background-image: -ms-linear-gradient(top, #c6554c, #c63328);
+    background-image: linear-gradient(top, #c6554c, #c63328);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#c8df7c', EndColorStr='#aad033');
     background-repeat: no-repeat;
     -webkit-transition: 0.1s linear all;
@@ -125,17 +127,30 @@ body {}
    /*text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);    */
     text-shadow: 0 1px 0px rgba(255, 255, 255, 0.45);
     text-transform: uppercase;
-    /*font-weight: 600;*/
+    font-weight: 600;
     font-family: "Proxima Nova Condensed", "Helvetica Neue", "Arial";
-    color: #d9271a;
-    color: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    /*color: rgba(0, 0, 0, 0.55);*/
     }
+.button-skin-primary:hover {
+  color: #f2f2f2;
+}
 
+.button-skin-primary.button-skin-primary-ext {
+  border-color: #e6e6e6 #e6e6e6 #e6e6e6;
+  background-color: #e6e6e6;
+  background-image: -webkit-gradient(linear, left top, left bottom, to(#e6e6e6), from(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #eaeaea, #e6e6e6);
+  background-image: -moz-linear-gradient(top, #eaeaea, #e6e6e6);
+  background-image: -o-linear-gradient(top, #eaeaea, #e6e6e6);
+  background-image: -ms-linear-gradient(top, #eaeaea, #e6e6e6);
+  background-image: linear-gradient(top, #eaeaea, #e6e6e6);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eaeaea', EndColorStr='#e6e6e6');
+  color:#333;
+}
+.button-skin-primary-ext:hover {
+  color:#333;
 
-.button-skin-primary-1 .text {
-  margin: auto 0;
-  display: inline-block;
-  height: 40px;
 }
 
 /* links
@@ -194,29 +209,21 @@ ul.baseList li{list-style-type:none; margin-left:   0px;}
 .image-shadow-220 { padding: 0 0 8px 0; background: url(images/bg-portfolio-4-shadow.png) bottom no-repeat; }
 
 
-/* Posts
+/* Mods
 -----------------*/
+.mod-skin-create-tasks {border: 1px solid #ccc;}
+.mod-skin-create-tasks .mod-header {
+  background: #F1F1F1;
+}
+.mod-skin-create-tasks .mod-body {
+  margin:  20px;
+}
+.mod-skin-create-tasks .mod-body p {
+  margin-left: 0;
+}
 
-.post { margin-bottom: 25px }
-.mod-skin-post {}
-.mod-skin-post .mod-header h2{margin: 20px 0;}
-.mod-skin-post .mod-body h2{margin: 20px 0;}
-.mod-skin-post .mod-body .meta{ background: url(images/bg-postmeta.png) no-repeat; line-height: 34px; font-size: 11px; color: #666; border-top: 1px solid #e7e7e7; border-bottom: 1px solid #e7e7e7; -webkit-box-shadow: 0px 1px 1px #fff; }
-.mod-skin-post .mod-body p {margin: 20px 0;}
-.mod-skin-post .mod-meta a { color: #666 }
-.mod-skin-post .shadow { background: url(images/shadow-postimg.png) 0 100% no-repeat; padding-bottom: 6px; margin-bottom: 20px; }
-.mod-skin-post img.main-thumb { background-color: #fff; padding: 4px; border: 1px solid #d0d0d0; }
-
-.mod-skin-comment { margin-bottom: 30px }
-.mod-skin-comment { position: relative; background: url(images/div-horizontal.png) 50% 100% no-repeat; }
-.mod-skin-comment div.avatar { position: absolute; left: 0; }
-.mod-skin-comment div.avatar img { border: 1px solid #e8e8e8; background-color: #f8f8f8; padding: 3px; }
-.mod-skin-comment div.avatar a.comment-reply-link { display: block; background: url(images/btn-reply.png) 0 0 no-repeat; width: 56px; height: 24px; text-align: center; font-size: 11px; font-weight: bold; color: #fff; line-height: 20px; text-shadow: -1px 0px 1px rgba(0,0,0,0.3); }
-.mod-skin-comment div.avatar a.comment-reply-link:hover { background-position: 100% 100% }
-.mod-skin-comment .mod-header h4 { line-height: 20px }
-.mod-skin-comment .mod-header h4 a { color: #333 }
-.mod-skin-comment .mod-body .meta { margin-bottom: 8px; font-size: 11px; color: #999; }
-
+.mod-skin-create-tasks .mod-footer {
+}
 
 
 /* forms
@@ -929,4 +936,5 @@ input {
   width: 100%;
 }
 
-
+.no-tasks h1 {font-size: 120px; font-family: "Proxima Nova";text-transform: none; font-weight: 400;}
+.no-tasks h2 {font-size: 60px; font-family: "Proxima Nova"; text-transform: none; line-height: normal; font-weight: 200;}

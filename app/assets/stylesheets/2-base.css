@@ -31,6 +31,7 @@ a:link { -webkit-tap-highlight-color: #edbb54; }
 input:focus, textarea:focus, select:focus {border: 1px solid #ccc; box-shadow: none;outline: medium none;}
 input[type="text"], input[type="password"] {}
 input[type="text"], input[type="password"] {box-shadow: none; height: 100%; background: transparent; line-height: 30px; border: none; margin: 0; padding: 0; width: 100%;}
+input[type="checkbox"] {float: left; margin-right: 10px; padding-top: 5px;}
 label {display: block; font-weight: 600; font-size: 14px;}
 
 
