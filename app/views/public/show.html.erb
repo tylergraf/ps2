@@ -1,0 +1,40 @@
+<div class="page-wrapper">
+  <p><%= link_to 'Manage Tasks', {:controller => 'tasks'}, :class => 'button button-skin-primary button-skin-primary-ext' %></p>
+<section id="bd" data-role="content" data-user='<%= @user.id %>'>
+  <table class="mod table-skin-primary">
+    <thead>
+    <tr>
+      <td colspan="<%= @tasks.length + 2 %>">
+        <div class="unit size2of5"><h3><a href="<%= get_prev_month_url(params[:id].to_i) %>">Prev</a></h3></div>
+
+        <div class="unit size1of5"><h2 ><%= get_month_name(params[:id].to_i) %></h2></div>
+        <div class="unit size2of5"><h3><a href="<%= get_next_month_url(params[:id].to_i) %>">Next</h3></div>
+      </td>
+    </tr>
+    <tr>
+      <th class="day"><h3>Day</h3></th>
+      <% @tasks.each do |t| %>
+      <th class="th-skin-task"><h3><%= t.task %></h3></th>
+      <% end %>
+      <th class="th-skin-notes"><h3>Notes</h3></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @days.each do |d| %>
+      <tr class="" data-date="<%= d.date %>">
+        <td><%= d.date.strftime('%e') %></td>
+        <% i = 0 %>
+        <% @tasks.each do |t| %>
+        <td data-checkin-id="<%= d['checkin_'+i.to_s] %>" data-recorded="<%= d['recorded_'+i.to_s] %>" data-task-id="<%= t.id %>" class="task"><i class="<%= convert_to_check(d['checked_'+i.to_s]) %>"></i></td>
+        <% i += 1 %>
+        <% end %>
+        <td><%= d.notes %></td>
+      </tr>
+    <% end %>
+    </tbody>
+    <tfoot></tfoot>
+  </table>
+
+
+</section>
+</div>
