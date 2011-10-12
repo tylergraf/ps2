@@ -23,5 +23,4 @@ Auth::Application.routes.draw do
   get "month" => "public#index", :as => "month"
   match "/month/:id" => "public#show"
 
-  get ""
 end
