@@ -1,6 +1,5 @@
 Auth::Application.routes.draw do
   resources :notes
-
   resources :tasks
 
   get "public/index"
@@ -24,4 +23,5 @@ Auth::Application.routes.draw do
   get "month" => "public#index", :as => "month"
   match "/month/:id" => "public#show"
 
+  get ""
 end

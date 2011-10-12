@@ -1,16 +1,16 @@
 <div class="page-wrapper">
   <% if @tasks.length != 0 %>
 
-  <%= link_to 'Manage Tasks', :controller => 'tasks' %>
+    <p class="unit-right"><%= link_to 'Manage Tasks', {:controller => 'tasks'}, :class => 'button button-skin-primary button-skin-primary-ext' %></p>
 <section id="bd" data-role="content" data-user='<%= @user.id %>'>
-  <table class="mod mod-table">
+  <table class="mod table-skin-primary">
     <thead>
     <tr>
       <td colspan="<%= @tasks.length + 2 %>">
-        <span class="unit size1of5"><a href="<%= get_prev_month_url() %>">Prev</a></span>
+        <div class="unit size2of5"><h3><a href="<%= get_prev_month_url() %>">Prev</a></h3></div>
 
-        <div class="unit size3of5"><h2 ><%= get_month_name() %></h2></div>
-        <span class="unit size1of5"><a href="<%= get_next_month_url() %>">Next</a></span>
+        <div class="unit size1of5"><h2 ><%= get_month_name() %></h2></div>
+        <div class="unit size2of5"><h3><a href="<%= get_next_month_url() %>">Next</a></h3></div>
       </td>
     </tr>
     <tr>
@@ -47,7 +47,6 @@
 </section>
      <% else %>
 <section data-user='<%= @user.id %>' class="no-tasks">
-  <h1 class="heading-ext-lowercase">Hey! Welcome!</h1>
   <h2 class="heading-ext-lowercase">You don&#39;t have any daily tasks yet!</h2>
 
   <p><img src="/images/task-example.jpg" alt=""></p>

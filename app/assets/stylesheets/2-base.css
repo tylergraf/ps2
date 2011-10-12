@@ -1,11 +1,7 @@
 /* Defaults and Overrides of core.css*/
 html {overflow: auto;}
-body {  font: 14px/20px "Proxima Nova", Helvetica, Arial, sans-serif;  color: #333;}
+body {  font: 14px/20px "proxima-nova", Helvetica, Arial, sans-serif;  color: #333;}
 h1, h2, h3, h4, h5, h6, ul, ol,dl, p,blockquote,pre,address,fieldset, .mod, .media  {margin:10px;}
-
-
-.pn-light {  font-family: "Proxima Nova Light", Helvetica, Arial, sans-serif}
-.pn-reg {  font-family: "Proxima Nova Regular", Helvetica, Arial, sans-serif}
 ::-moz-selection {  background: #edbb54;  color: #fff;  text-shadow: none;}
 ::selection {  background: #edbb54;  color: #fff;  text-shadow: none;}
 

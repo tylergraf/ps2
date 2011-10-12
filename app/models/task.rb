@@ -3,5 +3,6 @@ class Task < ActiveRecord::Base
   belongs_to :user
 
    validates :task, :presence => true,
-                    :uniqueness => { :case_sensitive => false }
+
+                    :uniqueness => { :scope => :user_id,:case_sensitive => false}
 end

@@ -1,21 +1,24 @@
 <div class="page-wrapper">
-<h1>Tasks</h1>
-  <p>
-    <%= link_to 'Create New Task', new_task_path, :class => 'button button-skin-primary'%>
 
-  </p>
-  <p><%= link_to 'Monthly Task List', :controller => 'public' %></p>
-
-<ul>
-<% @tasks.each do |task| %>
-    <li>
-      <%= task.task %>
-      <%= link_to 'Edit', edit_task_path(task) %>
-      <%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %>
-    </li>
-
-<% end %>
-
-</ul>
-
+  <div class="unit size4of5"><p><%= link_to 'Home', :controller => 'public' %></p></div>
+  <div class="unit size1of5"><p class="xx-helper-right"><%= link_to '+ Create New Task', new_task_path, :class => 'button button-skin-primary'%></p></div>
+  <div class="line">
+  <table class="mod table-skin-secondary">
+    <thead>
+    <tr>
+      <th colspan="3"><h1>Tasks</h1></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.task %></td>
+        <td><%= link_to 'Edit Task', edit_task_path(task) %></td>
+        <td><%= link_to 'Delete Task', task, confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+    </tbody>
+    <tfoot></tfoot>
+  </table>
+</div>
 </div>

@@ -1,14 +1,14 @@
 <div class="page-wrapper">
-  <%= link_to 'Manage Tasks', :controller => 'tasks' %>
+  <p><%= link_to 'Manage Tasks', {:controller => 'tasks'}, :class => 'button button-skin-primary button-skin-primary-ext' %></p>
 <section id="bd" data-role="content" data-user='<%= @user.id %>'>
-  <table class="mod mod-table">
+  <table class="mod table-skin-primary">
     <thead>
     <tr>
       <td colspan="<%= @tasks.length + 2 %>">
-        <span class="unit size1of5"><a href="<%= get_prev_month_url(params[:id].to_i) %>">Prev</a></span>
+        <div class="unit size2of5"><h3><a href="<%= get_prev_month_url(params[:id].to_i) %>">Prev</a></h3></div>
 
-        <div class="unit size3of5"><h2 ><%= get_month_name(params[:id].to_i) %></h2></div>
-        <span class="unit size1of5"><a href="<%= get_next_month_url(params[:id].to_i) %>">Next</a></span>
+        <div class="unit size1of5"><h2 ><%= get_month_name(params[:id].to_i) %></h2></div>
+        <div class="unit size2of5"><h3><a href="<%= get_next_month_url(params[:id].to_i) %>">Next</h3></div>
       </td>
     </tr>
     <tr>

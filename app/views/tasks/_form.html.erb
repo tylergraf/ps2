@@ -1,6 +1,6 @@
 <%= form_for @task, :html => {:class => 'form'} do |f| %>
   <% if @task.errors.any? %>
-    <div class="error-message">
+    <div class="form-errors">
       <h3><%= pluralize(@task.errors.count, "error") %> prohibited this check_in from being saved:</h3>
 
       <ul>
@@ -23,19 +23,20 @@
       <%= f.text_field :task %>
     </div>
   </div>
-  <div class="field">
-    <div class="unit size1of2">
-      <%= f.label :task_frequency, "Daily" %>
-        <%= f.radio_button :task_frequency, "daily" %>
-    </div>
-    <div class="unit size1of2">
-      <%= f.label :task_frequency, "Weekly" %>
-      <%= f.radio_button :task_frequency, "weekly" %>
-    </div>
-  </div>
+  <!--<div class="field">-->
+    <!--<div class="unit size1of2">-->
+      <!--<%= f.label :task_frequency, "Daily" %>-->
+        <!--<%= f.radio_button :task_frequency, "daily" %>-->
+    <!--</div>-->
+    <!--<div class="unit size1of2">-->
+      <!--<%= f.label :task_frequency, "Weekly" %>-->
+      <!--<%= f.radio_button :task_frequency, "weekly" %>-->
+    <!--</div>-->
+  <!--</div>-->
   <div class="form-actions">
-    <%= f.submit :class => 'button button-skin-primary' %>
-    <%= link_to 'Cancel', tasks_path, :class => 'button button-skin-primary button-skin-primary-ext' %>
-
+    <div class="field">
+      <%= f.submit :class => 'button button-skin-primary' %>
+      <%= link_to 'Cancel', tasks_path, :class => 'button button-skin-primary button-skin-primary-ext' %>
+    </div>
   </div>
 <% end %>
