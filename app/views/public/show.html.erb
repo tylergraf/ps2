@@ -1,5 +1,5 @@
 <div class="page-wrapper">
-  <p><%= link_to 'Manage Tasks', {:controller => 'tasks'}, :class => 'button button-skin-primary button-skin-primary-ext' %></p>
+  <p class="unit-right"><%= link_to 'Manage Tasks', {:controller => 'tasks'}, :class => 'button button-skin-primary button-skin-primary-ext' %></p>
 <section id="bd" data-role="content" data-user='<%= @user.id %>'>
   <table class="mod table-skin-primary">
     <thead>
@@ -21,14 +21,22 @@
     </thead>
     <tbody>
     <% @days.each do |d| %>
-      <tr class="" data-date="<%= d.date %>">
+      <tr class="<% if(d.date.to_s == Time.now.strftime("%Y-%m-%d"))%>today<% end %>" data-date="<%= d.date %>">
         <td><%= d.date.strftime('%e') %></td>
         <% i = 0 %>
         <% @tasks.each do |t| %>
         <td data-checkin-id="<%= d['checkin_'+i.to_s] %>" data-recorded="<%= d['recorded_'+i.to_s] %>" data-task-id="<%= t.id %>" class="task"><i class="<%= convert_to_check(d['checked_'+i.to_s]) %>"></i></td>
         <% i += 1 %>
         <% end %>
-        <td><%= d.notes %></td>
+        <td class="notes" data-note-id="<%= d.note_id %>" data-note-recorded="<%= d.note_recorded %>">
+          <p><%= d.notes %></p>
+          <textarea><%= d.notes %></textarea>
+          <div class="mod-footer">
+            <a href="#" class="button button-skin-primary">Submit</a>
+            <a href="#" class="cancel">Cancel</a>
+          </div>
+
+        </td>
       </tr>
     <% end %>
     </tbody>

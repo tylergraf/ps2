@@ -36,7 +36,6 @@ function send_data(_this,url, type, data, token){
 
 }
 function prepare_notes_data(_this) {
-  console.log(_this);
   var url = '/notes',
       id = _this.attr('data-note-id'),
       date = _this.parent().attr('data-date'),
@@ -51,9 +50,8 @@ function prepare_notes_data(_this) {
     data = '{"notes":"'+notes+'","user_id":"' + user_id + '","id":"' + id + '"}',
     type = 'PUT';
   }
-  if(notes !=''){
     send_data(_this,url, type, data, token)
-  }
+  _this.parent('.notes').click(create_textarea(jQuery(this)));
 }
 function prepare_task_data(_this) {
       if (_this.find('i').hasClass('checked'))
